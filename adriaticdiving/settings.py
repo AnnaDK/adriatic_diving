@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-a9353832-69fe-4e2d-83f8-eccee46f817e.ws-eu01.gitpod.io']
+ALLOWED_HOSTS = ['8080-a9353832-69fe-4e2d-83f8-eccee46f817e.ws-eu01.gitpod.io']
 
 
 # Application definition
@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'accounts',
+    'bootstrapform',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +123,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"

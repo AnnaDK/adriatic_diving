@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+  <hr><br>
+  <div class="row">
+  {% for activity in activities %}
+  <div class="xs-12 md-6">
+  <div class="card" style="width: 18rem;">
+  <img src="url('{{ MEDIA_URL }}{{ activity.image }}')" class="card-img-top" alt="...">
+  </div>
+</div>
+<div class="xs-12 md-6">
+<h5 >{{ activity.name }}</h5>
+<p >{{ activity.description }}</p>
+    <p>{{ activity.price }}</p>
+    <form method="post" action="{% url 'add_to_cart' activity.id %}">
+    {% csrf_token %}
+    <div class="input-group">
+    <input name="quantity" type="number" min="1" max="10" class="form-control" placeholder="Quantity">
+    <span class="input-group-btn">
+    <button class="btn btn-success" type="submit">Add</button>
+    </span>
+    </div>
+    </form>
+
+</div>
+<a href="{% url 'activities' %}" class="btn btn-primary">Back</a>
+{% endfor %}
+  </div>
+</div>
+{% endblock %}

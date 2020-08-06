@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <hr><br>
+  
+  <div class="row">
+  {% for activity in activities %}
+  <div class=" col-xs-12 col-sm-6 ">
+  <div class="card" style="width: 18rem;">
+  <img src="url('{{ MEDIA_URL }}{{ activity.image }}')" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ activity.name }}</h5>
+    
+    <a href="{% url 'activity' %}" class="btn btn-primary">Open</a>
+  </div>
+</div>
+  </div> 
+  {% endfor %}  
+  </div>
+</div>  
+{% endblock %}

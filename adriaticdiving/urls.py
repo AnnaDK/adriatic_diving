@@ -16,10 +16,19 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from accounts.views import index
-from accounts import urls as accounts_urls
+from accounts import urls as urls_accounts
+from activities import urls as urls_activities
+from activities.views import all_activities, one_activity
+from django.views import static
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-    url(r'^accounts/', include(accounts_urls))
+    url(r'^$', all_activities, name="activities"),
+    url(r'^$', one_activity, name="activity"),
+    url(r'^accounts/', include(urls_accounts)),
+    url(r'^activities/', include(urls_activities)),
+
+
 ]

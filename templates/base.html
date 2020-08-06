@@ -48,6 +48,7 @@
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
           <a class="nav-item nav-link" href="{% url 'index' %}">Home</a>
+          <a class="nav-item nav-link" href="{% url 'activities' %}">Activities</a>
           {% if user.is_authenticated %}
           <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
           <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>

@@ -17,18 +17,21 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from accounts.views import index
 from accounts import urls as urls_accounts
-from activities import urls as urls_activities
-from activities.views import all_activities, one_activity
+from courses import urls as urls_courses
+from cart import urls as urls_cart
+from courses.views import all_courses, one_course
 from django.views import static
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-    url(r'^$', all_activities, name="activities"),
-    url(r'^$', one_activity, name="activity"),
+    url(r'^$', all_courses, name="courses"),
+    url(r'^$', one_course, name="course"),
     url(r'^accounts/', include(urls_accounts)),
-    url(r'^activities/', include(urls_activities)),
+    url(r'^courses/', include(urls_courses)),
+    url(r'^cart/', include(urls_cart)),
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
 
 
 ]

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container">
+  <hr><br>
+  
+  <div class="row">
+  {% for course in courses %}
+ <div class="col-sm-6">
+  <div class="card"  >
+  <img src="url('{{ MEDIA_URL }}{{ course.image }}')" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{ course.name }}</h5>
+   
+     <p class="card-text">{{ course.description }}</p>
+    
+     <p class="card-text">{{ course.price }}</p>
+    <!--<p>{{ course.online_offer_price }}</p>-->
+    <form method="post" action="{% url 'add_to_cart' course.id %}">
+    {% csrf_token %}
+    <div class="input-group">
+    <input name="quantity" type="number" min="1" max="10" class="form-control" placeholder="Quantity">
+    <span class="input-group-btn">
+    <button class="btn btn-success" type="submit">Add</button>
+    </span>
+    </div>
+    </form>
+    <a href="#" class="btn btn-primary">Open</a>
+  </div>
+</div>
+  </div> 
+  {% endfor %}  
+  </div>
+</div>  
+{% endblock %}

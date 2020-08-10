@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+
 {% block content %}
 
 <div class="container">
@@ -12,9 +13,9 @@
   <div class="card-body">
     <h5 class="card-title">{{ course.name }}</h5>
    
-     <p class="card-text">{{ course.description }}</p>
+     <p class="card-text">{{ course.short_description }}</p>
     
-     <p class="card-text">{{ course.price }}</p>
+     <p class="card-text"><strong>{{ course.price }}</strong><i class="fas fa-euro-sign pl-1"></i></p>
     <!--<p>{{ course.online_offer_price }}</p>-->
     <form method="post" action="{% url 'add_to_cart' course.id %}">
     {% csrf_token %}
@@ -25,8 +26,8 @@
     </span>
     </div>
     </form>
-    <a href="#" class="btn btn-primary">Open</a>
-  </div>
+    <a href="{% url 'course' course.id %}" class="btn btn-primary">Open</a>
+  </div> 
 </div>
   </div> 
   {% endfor %}  

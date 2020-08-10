@@ -16,22 +16,23 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from accounts.views import index
+from django.views.generic import RedirectView
 from accounts import urls as urls_accounts
 from courses import urls as urls_courses
 from cart import urls as urls_cart
-from courses.views import all_courses, one_course
-from django.views import static
+# from django.views import static
 from .settings import MEDIA_ROOT
+from django.views.static import serve
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-    url(r'^$', all_courses, name="courses"),
-    url(r'^$', one_course, name="course"),
+    url(r'^$', RedirectView.as_view(url='courses/')),
     url(r'^accounts/', include(urls_accounts)),
     url(r'^courses/', include(urls_courses)),
     url(r'^cart/', include(urls_cart)),
-    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
+    # url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
 
 
 ]

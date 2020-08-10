@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
+
 {% block content %}
-<div class="container">
-  
-  <div class="row">
-  {% for course in courses %}
-  <div class="xs-12 md-6">
-  <div class="card" >
-  <img src="url('{{ MEDIA_URL }}{{ course.image }}')" class="card-img-top" alt="...">
-  </div>
-</div>
-<div class="xs-12 md-6">
-<h5 >{{ course.name }}</h5>
-<p >{{ course.description }}</p>
-    <p>{{ course.price }}</p>
-    <form method="post" action="{% url 'add_to_cart' activity.id %}">
+
+<div class="media">
+
+  <img src="url('{{ MEDIA_URL }}{{ course.image }}')" class="mr-3" alt="...">
+  <div class="media-body">
+    <h5 class="mt-0">{{ course.name }}</h5>
+    <p>{{course.description}}Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+    <p ><strong>{{ course.price }}</strong><i class="fas fa-euro-sign pl-1"></i></p>
+    <!--<p>{{ course.online_offer_price }}</p>-->
+    <form method="post" action="{% url 'add_to_cart' course.id %}">
     {% csrf_token %}
     <div class="input-group">
     <input name="quantity" type="number" min="1" max="10" class="form-control" placeholder="Quantity">
@@ -22,10 +19,7 @@
     </span>
     </div>
     </form>
-
-</div>
-<a href="{% url 'courses' %}" class="btn btn-primary">Back</a>
-{% endfor %}
   </div>
+  
 </div>
 {% endblock %}

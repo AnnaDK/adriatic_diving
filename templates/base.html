@@ -1,6 +1,11 @@
 {% load staticfiles %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Adriatic diving">
  
     <!-- CSS only -->
     <link
@@ -11,28 +16,15 @@
     />
 
     <!-- JS, Popper.js, and jQuery -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0-11/css/all.min.css" />
      <link rel="stylesheet" href="{% static 'css/styles.css'%}" type="text/css"/>
     <title>{% block page_title %}{% endblock %}</title>
   </head>
 
   <body>
-  <div class="container">
+  <div class="container-fluid">
     <h1>{% block page_heading %}{% endblock %}</h1>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{% url 'index' %}"><img src="../media/icons/wave.png" width="50" height="50" alt="" loading="lazy"> Adriatic diving</a>
@@ -47,19 +39,19 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link" href="{% url 'index' %}">Home</a>
-          <a class="nav-item nav-link" href="{% url 'courses' %}">Courses</a>
+          <a id="home" class="nav-item nav-link" href="{% url 'index' %}">Home</a>
+          <a id="courses" class="nav-item nav-link" href="{% url 'courses' %}">Courses</a>
           {% if user.is_authenticated %}
-          <a class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-          <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+          <a  id="logout" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
+          <a id="profile" class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
           {% else %}
 
-          <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-          <a class="nav-item nav-link" href="{% url 'registration' %}">Register</a>
+          <a id="login" class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+          <a id="register" class="nav-item nav-link" href="{% url 'registration' %}">Register</a>
           {% endif %}
-          <a class="nav-item nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart pt-1"></i></a>
+          <a id="cart" class="nav-item nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart pt-1"></i></a>
         </div>
       </div>
     </nav>
@@ -69,7 +61,20 @@
       {% for message in messages %} {{ message }} {% endfor %}
     </div>
     {% endif %} {% block content %}{% endblock %}
-  </div>
+ 
   <!--<div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
+  <!---Footer -->
+    <nav class="navbar navbar-footer navbar-expand-lg navbar-light bg-light">
+      <p class="footer">Copyright &copy; Adriatic Diving 2020</p>
+    </nav>
+ </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
   </body>
 </html>

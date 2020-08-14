@@ -1,36 +1,33 @@
 {% extends 'base.html' %}
-
+ {% load static %}
 {% block content %}
 
-<div class="container">
-  <hr><br>
+
+<div class="row p-4">
+
+ 
+
+
+{% for course in courses %}
+ <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+   <div class="card h-90" style="width: 18rem;">
+            
+            <img src="{{ MEDIA_URL }}{{ course.image }}"  class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title"><a href="{% url 'course' course.id %}">{{ course.name }}</a></h5>
+    <p class="card-text">{{ course.short_description }}</p>
+      <p class="card-text">{{ course.price }}<i class="fas fa-euro-sign pl-1"></i></p>
+      
+      
+      
+            </div>
   
-  <div class="row">
-  {% for course in courses %}
- <div class="col-sm-6">
-  <div class="card"  >
-  <img src="url('{{ MEDIA_URL }}{{ course.image }}')" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{ course.name }}</h5>
-   
-     <p class="card-text">{{ course.short_description }}</p>
-    
-     <p class="card-text"><strong>{{ course.price }}</strong><i class="fas fa-euro-sign pl-1"></i></p>
-    <!--<p>{{ course.online_offer_price }}</p>-->
-    <form method="post" action="{% url 'add_to_cart' course.id %}">
-    {% csrf_token %}
-    <div class="input-group">
-    <input name="quantity" type="number" min="1" max="10" class="form-control" placeholder="Quantity">
-    <span class="input-group-btn">
-    <button class="btn btn-success" type="submit">Add</button>
-    </span>
-    </div>
-    </form>
-    <a href="{% url 'course' course.id %}" class="btn btn-primary">Open</a>
-  </div> 
-</div>
-  </div> 
-  {% endfor %}  
+  
+     </div>
   </div>
-</div>  
+
+{% endfor %}
+
+</div>
+
 {% endblock %}

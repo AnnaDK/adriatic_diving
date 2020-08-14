@@ -20,9 +20,13 @@ from django.views.generic import RedirectView
 from accounts import urls as urls_accounts
 from courses import urls as urls_courses
 from cart import urls as urls_cart
-# from django.views import static
+from courses.views import all_courses
+from django.views import static
 from .settings import MEDIA_ROOT
 from django.views.static import serve
+# from search import urls as urls_search
+# from checkout import urls as urls_checkout
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -31,8 +35,7 @@ urlpatterns = [
     url(r'^accounts/', include(urls_accounts)),
     url(r'^courses/', include(urls_courses)),
     url(r'^cart/', include(urls_cart)),
-    # url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT}),
-    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 
 
 ]

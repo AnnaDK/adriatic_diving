@@ -1,25 +1,76 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container course-content container-fluid">
+ <div class="row ">
 
-<div class="media">
-
-  <img src="url('{{ MEDIA_URL }}{{ course.image }}')" class="mr-3" alt="...">
+<div class="col-sm-12 col-md-12 col-lg-6">
+  <img src="{{ MEDIA_URL }}{{ course.image }}"  class="img-fluid rounded mx-auto d-block float-left"  alt="...">
+</div>
+<div class="col-sm-12 col-md-12 col-lg-6">
   <div class="media-body">
     <h5 class="mt-0">{{ course.name }}</h5>
-    <p>{{course.description}}Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-    <p ><strong>{{ course.price }}</strong><i class="fas fa-euro-sign pl-1"></i></p>
-    <!--<p>{{ course.online_offer_price }}</p>-->
+    <p>{{course.description}}</p>
+    <h3>Facts</h3>
+    <table class="table table-responsive-sm">
+ 
+  <tbody>
+    <tr>
+      <th scope="row">
+Minimum Age:</th>
+      <td>{{course.minimum_age}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Certification Prerequisites:</th>
+      <td>{{course.certification_prior}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Academic Sessions:</th>
+      <td colspan="2">{{course.academic_sessions}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Pool/Confined Water Sessions:</th>
+      <td>{{course.confined_water}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Open Water Dives:</th>
+      <td>{{course.openwater_dives}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Maximum Training Depth:</th>
+      <td>{{course.maximum_depth}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Suggested Duration:</th>
+      <td>{{course.duration}}</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">Price:</th>
+      <td><strong>{{ course.price }}</strong><i class="fas fa-euro-sign pl-1"></i></td>
+      
+    </tr>
+  </tbody>
+</table>
+    
     <form method="post" action="{% url 'add_to_cart' course.id %}">
     {% csrf_token %}
     <div class="input-group">
     <input name="quantity" type="number" min="1" max="10" class="form-control" placeholder="Quantity">
     <span class="input-group-btn">
-    <button class="btn btn-success" type="submit">Add</button>
+    <button class="btn btn-success" type="submit">Buy </button>
     </span>
     </div>
     </form>
   </div>
-  
 </div>
+</div>
+</div>
+
 {% endblock %}

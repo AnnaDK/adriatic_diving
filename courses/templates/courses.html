@@ -1,33 +1,20 @@
-{% extends 'base.html' %}
- {% load static %}
-{% block content %}
-
+{% extends 'base.html' %} {% load static %} {% block content %}
 
 <div class="row p-4">
-
- 
-
-
-{% for course in courses %}
- <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-   <div class="card h-90" style="width: 18rem;">
-            
-            <img src="{{ MEDIA_URL }}{{ course.image }}"  class="card-img-top" alt="...">
-            <div class="card-body">
-            <h5 class="card-title"><a href="{% url 'course' course.id %}">{{ course.name }}</a></h5>
-    <p class="card-text">{{ course.short_description }}</p>
-      <p class="card-text">{{ course.price }}<i class="fas fa-euro-sign pl-1"></i></p>
+  {% for course in courses %}
+  <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+    <div class="card h-100" style="width: 18rem;">
+      <img
+        src="{{ MEDIA_URL }}{{ course.image }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <a class="stretched-link" href="{% url 'course' course.id %}"></a>
       
-      
-      
-            </div>
-  
-  
-     </div>
+    </div>
   </div>
 
-{% endfor %}
-
+  {% endfor %}
 </div>
 
 {% endblock %}

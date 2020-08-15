@@ -4,7 +4,7 @@ from .views import all_courses, one_course
 
 urlpatterns = [
     url(r'^$', all_courses, name='courses'),
-    url(r'^(?P<pk>\d+)/<int:id>/', one_course, name='course'),
+    url(r'^(?P<pk>\d+)/', one_course, name='course'),
     
     ]
 

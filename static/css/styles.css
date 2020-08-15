@@ -81,3 +81,14 @@ h1 {
 .stretched-link{
 text-decoration: none!important;
 }
+
+.display-4{
+    font-family: 'MuseoModerno', cursive;
+    color:#ffffff;
+}
+
+.home_paragraph{
+    font-family: 'Crimson Text', serif;
+    color: black;
+    font-size: 22px;
+}

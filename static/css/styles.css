@@ -33,12 +33,6 @@ font-size: 30px;
 font-weight: 500;
 
 }
-
- .active {
-    color: #ffffff;
-    font-size: 40px;
-    text-decoration: none;
-}
 form {
     width: 50%;
 }
@@ -74,7 +68,7 @@ h1 {
   background-position: 50% 50%;
 }
 
-.card:active {
+.card_course:active {
   transform: translateY(2px);
   box-shadow: 0 1px 0 0 #ccc;
 }
@@ -82,13 +76,11 @@ h1 {
 text-decoration: none!important;
 }
 
-.display-4{
-    font-family: 'MuseoModerno', cursive;
-    color:#ffffff;
+active {
+    font-size: 25px;
+    text-decoration: none;
 }
 
-.home_paragraph{
-    font-family: 'Crimson Text', serif;
-    color: black;
-    font-size: 22px;
+.card-quiz-answer{
+    color: darkblue;
 }

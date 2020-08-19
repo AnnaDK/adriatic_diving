@@ -1,3 +1,4 @@
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{% url 'index' %}"><img class="mr-2" src="../media/icons/wave.png" width="50" height="50" alt="" loading="lazy"> Adriatic diving</a>
       <button
@@ -13,17 +14,28 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a id="home" class="nav-item nav-link" href="{% url 'index' %}">Home</a>
-          <a id="courses" class="nav-item nav-link" href="{% url 'courses' %}">Courses</a>
+        
+          <div {% if request.resolver_match.url_name == 'index' %}class="active"{% endif %}>
+          <a id="home" class="nav-item nav-link" href="{% url 'index' %}">Home</a></div>
+          <div {% if request.resolver_match.url_name == 'courses' %}class="active"{% endif %}>
+          <a id="courses" class="nav-item nav-link" href="{% url 'courses' %}">Courses</a></div>
+          <div {% if request.resolver_match.url_name == 'quiz' %}class="active"{% endif %}>
+          <a id="quiz" class="nav-item nav-link" href="{% url 'quiz' %}">Quiz</a></div>
           {% if user.is_authenticated %}
-          <a  id="logout" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a>
-          <a id="profile" class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+          <div {% if request.resolver_match.url_name == 'logout' %}class="active"{% endif %}>
+          <a  id="logout" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></div>
+          <div {% if request.resolver_match.url_name == 'profile' %}class="active"{% endif %}>
+          <a id="profile" class="nav-item nav-link" href="{% url 'profile' %}">Profile</a></div>
           {% else %}
 
-          <a id="login" class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-          <a id="register" class="nav-item nav-link" href="{% url 'registration' %}">Register</a>
+          <div {% if request.resolver_match.url_name == 'login' %}class="active"{% endif %}>
+          <a id="login" class="nav-item nav-link" href="{% url 'login' %}">Login</a></div>
+          <li {% if request.resolver_match.url_name == 'registration' %}class="active"{% endif %}>
+          <a id="register" class="nav-item nav-link" href="{% url 'registration' %}">Register</a></li>
           {% endif %}
-          <a id="cart" class="nav-item nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart pt-1"></i></a>
+          <div {% if request.resolver_match.url_name == 'view_cart' %}class="active"{% endif %}>
+          <a id="cart" class="nav-item nav-link" href="{% url 'view_cart' %}"><i class="fas fa-shopping-cart pt-1"></i></a></div>
+        
         </div>
       </div>
     </nav>

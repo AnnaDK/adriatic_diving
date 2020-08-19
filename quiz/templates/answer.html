@@ -17,30 +17,28 @@
     {% csrf_token %}
    
        <div class="form-group form-check">
-  <input class="form-check-input" type="checkbox" value="{{ quiz.id }}" id="defaultCheck1">
-  <label class="form-check-label" for="defaultCheck1">
-    {{quiz.option_one}}
-  </label>
+  <input class="form-check-input" type="checkbox" value="{{quiz.option_one}}" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">{{quiz.option_one}}</label>
 </div>
 <div class="form-group form-check">
-  <input class="form-check-input" type="checkbox" value="{{ quiz.id }}" id="defaultCheck2" >
+  <input class="form-check-input" type="checkbox" value="{{quiz.option_two}}" id="defaultCheck2" >
   <label class="form-check-label" for="defaultCheck2">
    {{quiz.option_two}}
   </label>
 </div>
 <div class="form-group form-check">
-  <input class="form-check-input" type="checkbox" value="{{ quiz.id }}" id="defaultCheck3">
+  <input class="form-check-input" type="checkbox" value="{{quiz.option_three}}" id="defaultCheck3">
   <label class="form-check-label" for="defaultCheck3">
     {{quiz.option_three}}
   </label>
 </div>
 <div class="form-group form-check">
-  <input class="form-check-input" type="checkbox" value="{{ quiz.id }}" id="defaultCheck4" >
+  <input class="form-check-input" type="checkbox" value="{{quiz.option_four}}" id="defaultCheck4" >
   <label class="form-check-label" for="defaultCheck4">
     {{quiz.option_four}}
   </label>
 </div>
-<button type="submit" data-target="{{ quiz.id }}" class="btn btn-light">Submit</button>
+<button type="submit" data-target="" class="btn btn-light">Submit</button>
 <div >
 {% if messages %}
 

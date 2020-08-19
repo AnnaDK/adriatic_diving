@@ -7,3 +7,4 @@ urlpatterns = [
     url(r'^(?P<pk>\d+)/', quiz_answer, name='answer'),
     
     ]
+

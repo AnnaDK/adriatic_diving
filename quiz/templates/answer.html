@@ -1,0 +1,57 @@
+
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+ 
+{% block content %}
+<div class="row justify-content-md-center">
+
+    <div class="col-lg-8 col-lg-offset-2">
+    
+    <div class="card mt-3 card-quiz-answer">
+  <h5 class="card-header">{{ quiz.name}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{ quiz.question}}</h5>
+    <form method="POST"  >
+      
+    {% csrf_token %}
+   
+       <div class="form-group form-check">
+  <input class="form-check-input" type="checkbox" value="{{ quiz.id }}" id="defaultCheck1">
+  <label class="form-check-label" for="defaultCheck1">
+    {{quiz.option_one}}
+  </label>
+</div>
+<div class="form-group form-check">
+  <input class="form-check-input" type="checkbox" value="{{ quiz.id }}" id="defaultCheck2" >
+  <label class="form-check-label" for="defaultCheck2">
+   {{quiz.option_two}}
+  </label>
+</div>
+<div class="form-group form-check">
+  <input class="form-check-input" type="checkbox" value="{{ quiz.id }}" id="defaultCheck3">
+  <label class="form-check-label" for="defaultCheck3">
+    {{quiz.option_three}}
+  </label>
+</div>
+<div class="form-group form-check">
+  <input class="form-check-input" type="checkbox" value="{{ quiz.id }}" id="defaultCheck4" >
+  <label class="form-check-label" for="defaultCheck4">
+    {{quiz.option_four}}
+  </label>
+</div>
+<button type="submit" data-target="{{ quiz.id }}" class="btn btn-light">Submit</button>
+<div >
+{% if messages %}
+
+    <div>
+      {% for message in messages %} {{ message }} {{ quiz.answer}} {% endfor %}
+    </div>
+    {% endif %}
+</div>
+</form>
+      
+</div>
+</div>
+
+{% endblock %}

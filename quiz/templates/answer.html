@@ -48,7 +48,18 @@
     {% endif %}
 </div>
 </form>
-      
+ <div>
+ {% if quiz.has_previous %}
+      <a href="{% url 'answer' previousquestion.id %}" class="previous">&laquo; {{ previousquestion }}</a>
+      {% else %}
+       <a href="{% url 'quiz' %}" class="previous">&laquo; Quiz page</a>
+       {% endif %}
+       {% if nextquestion %}
+<a href="{% url 'answer' nextquestion.id %}" class="next">{{ nextquestion }}&raquo;</a>
+{% else %}
+       <a href="{% url 'quiz' %}" class="previous"> Quiz page &raquo;</a>
+       {% endif %}
+</div>
 </div>
 </div>
 

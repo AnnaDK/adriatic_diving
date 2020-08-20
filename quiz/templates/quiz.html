@@ -21,4 +21,24 @@
   
 </div>
 
+
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if quizes.has_previous %}
+            <a href="?page={{ quizes.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ quizes.number }} of {{ quizes.paginator.num_pages }}.
+        </span>
+
+        {% if quizes.has_next %}
+            <a href="?page={{ quizes.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
 {% endblock %}

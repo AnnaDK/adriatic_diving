@@ -30,12 +30,16 @@ def quiz_answer(request, pk):
     if request.method == 'POST':
         
         messages.success(request, "Answer: ")
+        form = QuizForm(request.POST,  instance=quiz)
+        if form.is_valid():
+            quiz = form.save()
+            return redirect(quiz_answer, quiz.pk)
         
 
     nextquestion = Quiz.objects.filter(id__gt=quiz.id).order_by('id').first()
     previousquestion = Quiz.objects.filter(id__lt=quiz.id).order_by('id').last()
 
-    return render(request, "answer.html", {'quiz': quiz, 'nextquestion': nextquestion, 'previousquestion': previousquestion})
+    return render(request, "answer.html", {'quiz': quiz, 'form': form, 'nextquestion': nextquestion, 'previousquestion': previousquestion})
 
 
 

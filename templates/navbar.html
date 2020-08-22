@@ -13,8 +13,8 @@
           <a id="courses" class="nav-item nav-link" href="{% url 'courses' %}">Courses</a></div>
           <div {% if request.resolver_match.url_name == 'quiz_page' %}class="active"{% endif %}>
           <a id="quiz" class="nav-item nav-link" href="{% url 'quiz_page' %}">Quiz</a></div>
-          <div {% if request.resolver_match.url_name == 'blog' %}class="active"{% endif %}>
-          <a id="blog" class="nav-item nav-link" href="{% url 'blog' %}">Blog</a></div>
+          <div {% if request.resolver_match.url_name == 'our_blog' %}class="active"{% endif %}>
+          <a id="blog" class="nav-item nav-link" href="{% url 'our_blog' %}">Blog</a></div>
           {% if user.is_authenticated %}
           <div {% if request.resolver_match.url_name == 'logout' %}class="active"{% endif %}>
           <a  id="logout" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></div>

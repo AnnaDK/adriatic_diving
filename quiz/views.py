@@ -29,9 +29,9 @@ def quiz_answer(request, pk):
     
     if request.method == 'POST':
         
-        messages.success(request, "Answer: ") 
-    
-    
+        messages.success(request, "Answer: ")
+        
+
     nextquestion = Quiz.objects.filter(id__gt=quiz.id).order_by('id').first()
     previousquestion = Quiz.objects.filter(id__lt=quiz.id).order_by('id').last()
 

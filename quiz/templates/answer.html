@@ -12,12 +12,13 @@
   <h5 class="card-header">{{ quiz.name}}</h5>
   <div class="card-body">
     <h5 class="card-title">{{ quiz.question}}</h5>
-    <form method="POST"  >
+    <div class="form-check">
+    <form method="POST">
       
     {% csrf_token %}
    
        <div class="form-group form-check">
-  <input class="form-check-input" type="checkbox" value="{{quiz.option_one}}" id="defaultCheck1">
+  <input class="form-check-input" type="checkbox" value="checkboxvalue" id="defaultCheck1">
   <label class="form-check-label" for="defaultCheck1">{{quiz.option_one}}</label>
 </div>
 <div class="form-group form-check">
@@ -48,17 +49,26 @@
     {% endif %}
 </div>
 </form>
- <div>
- {% if quiz.has_previous %}
-      <a href="{% url 'answer' previousquestion.id %}" class="previous">&laquo; {{ previousquestion }}</a>
-      {% else %}
-       <a href="{% url 'quiz' %}" class="previous">&laquo; Quiz page</a>
-       {% endif %}
+    </div>
+ <div class="pagination_answer mt-2">
+ <nav aria-label="Page navigation ">
+  <ul class="pagination">
+   {% if previousquestion %}
+  <li class="page-item">
+ <a class="page-link" href="{% url 'answer' previousquestion.id %}">&laquo; {{ previousquestion }} prev</a>
+    </li>
+    
+    {% else %}
+    <li class="page-item"><a class="page-link" href="{% url 'quiz_page' %}">Main page</a></li>
+     {% endif %}
        {% if nextquestion %}
-<a href="{% url 'answer' nextquestion.id %}" class="next">{{ nextquestion }}&raquo;</a>
-{% else %}
-       <a href="{% url 'quiz' %}" class="previous"> Quiz page &raquo;</a>
-       {% endif %}
+    <li class="page-item"><a class="page-link" href="{% url 'answer' nextquestion.id %}">next {{ nextquestion }} &raquo;</a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link" href="{% url 'quiz_page' %}">Main page</a></li>
+     {% endif %}
+    
+  </ul>
+</nav>
 </div>
 </div>
 </div>

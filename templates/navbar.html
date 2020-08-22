@@ -1,17 +1,9 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{% url 'index' %}"><img class="mr-2" src="../media/icons/wave.png" width="50" height="50" alt="" loading="lazy"> Adriatic diving</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
         
@@ -19,8 +11,8 @@
           <a id="home" class="nav-item nav-link" href="{% url 'index' %}">Home</a></div>
           <div {% if request.resolver_match.url_name == 'courses' %}class="active"{% endif %}>
           <a id="courses" class="nav-item nav-link" href="{% url 'courses' %}">Courses</a></div>
-          <div {% if request.resolver_match.url_name == 'quiz' %}class="active"{% endif %}>
-          <a id="quiz" class="nav-item nav-link" href="{% url 'quiz' %}">Quiz</a></div>
+          <div {% if request.resolver_match.url_name == 'quiz_page' %}class="active"{% endif %}>
+          <a id="home" class="nav-item nav-link" href="{% url 'quiz_page' %}">Quiz</a></div>
           {% if user.is_authenticated %}
           <div {% if request.resolver_match.url_name == 'logout' %}class="active"{% endif %}>
           <a  id="logout" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></div>

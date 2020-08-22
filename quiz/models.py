@@ -8,10 +8,10 @@ class Quiz(models.Model):
     option_two = models.CharField(max_length=200)
     option_three = models.CharField(max_length=200)
     option_four = models.CharField(max_length=200)
-    option_one_checkbox = models.BooleanField(default=False)
-    option_two_checkbox = models.BooleanField(default=False)
-    option_three_checkbox = models.BooleanField(default=False)
-    option_four_checkbox = models.BooleanField(default=False)
+    option_one_checkbox = models.BooleanField()
+    option_two_checkbox = models.BooleanField()
+    option_three_checkbox = models.BooleanField()
+    option_four_checkbox = models.BooleanField()
     answer = models.CharField(max_length=200, default='')
     
     class Meta:
@@ -19,3 +19,5 @@ class Quiz(models.Model):
 
     def __str__(self):
         return self.name
+
+    

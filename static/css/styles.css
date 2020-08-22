@@ -76,11 +76,16 @@ h1 {
 text-decoration: none!important;
 }
 
-active {
+.active {
     font-size: 30px;
     text-decoration: none;
+    color: black;
 }
 
-.card-quiz-answer{
-    color: darkblue;
+.btn-light {
+    background-color: lightblue!important;
+}
+
+.form-control{
+    list-style: none!important;
 }

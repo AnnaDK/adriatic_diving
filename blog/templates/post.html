@@ -1,7 +1,6 @@
-
 {% extends "base.html" %}
-
-{% block title %}Quiz{% endblock %}
+{% load bootstrap_tags %}
+{% block title %}Post{% endblock %}
  
 {% block content %}
 <div class="row justify-content-md-center">
@@ -9,7 +8,7 @@
     <div class="col-lg-8 col-lg-offset-2">
  <div class="card mt-3">
   {% if post.image %}
-  <img src="..." class="card-img-top" alt="...">
+  <img src="{{ MEDIA_URL }}{{ post.image }}" class="card-img-top" style="" alt="...">
         {% endif %}
   <div class="card-body">
     <h5 class="card-title">{{ post.title }}</h5>
@@ -23,26 +22,50 @@
    <small class="text-muted"><span class="boldtext">Tag:</span> {{ post.tag }} <br>
     <span class="boldtext ">Views:</span> {{post.views}}
     </small><br>
-    <a href="{% url 'posts' %}" class="btn btn-outline-dark m-2">Back to Blog</a>
-                    <a href="{% url 'comment' %}" class="btn btn-outline-dark m-2">Comment</a>
+   
     </p>
-                    
+        <div class="accordion" id="accordionExample">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+      
+      <a href="{% url 'blogposts' %}" class="btn btn-link btn-outline-dark m-2" role="button" aria-pressed="true">Back to Blog</a>
+      
+        <button class="btn btn-link collapsed btn-outline-dark m-2" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         Comment
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <form method="POST">
+            <div class="form-group">
+              {{ form | as_bootstrap }}
+              {% csrf_token %}
+            </div>
+            <button type="submit" class="btn btn-info">Submit</button>
+          </form>
+      </div>
+    </div>
+  </div>           
   </div>
 </div>
 
     </div>
 </div>
+
+
 <div class="row justify-content-md-center">
  
     <div class="col-lg-8 col-lg-offset-2">
 {% for comment in comments %}
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{comment.created_date}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{comment.author}}</h6>
-    <p class="card-text">{{comment.text}}</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+<div class="card mt-1" >
+  <div class="card-body justify-content-right" >
+    <p class="card-text text-muted p-0">From: {{comment.author}} &nbsp; {{comment.created_date}}</p>
+    <p class="card-text text-right">{{comment.text}}</p>
+    <p class="justify-content-end">
+    <a href="{% url 'edit_comment' comment.id %" class="card-link">Edit</a>
+    <a href="#" class="card-link">Delete</a>
+    </p>
   </div>
 </div>
 {% endfor %}

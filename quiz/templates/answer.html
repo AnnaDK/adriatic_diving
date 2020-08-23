@@ -59,12 +59,12 @@
     </li>
     
     {% else %}
-    <li class="page-item"><a class="page-link" href="{% url 'quiz_page' %}">Main page</a></li>
+    <li class="page-item"><a class="page-link" href="{% url 'quiz' %}">Main page</a></li>
      {% endif %}
        {% if nextquestion %}
     <li class="page-item"><a class="page-link" href="{% url 'answer' nextquestion.id %}">next {{ nextquestion }} &raquo;</a></li>
     {% else %}
-    <li class="page-item"><a class="page-link" href="{% url 'quiz_page' %}">Main page</a></li>
+    <li class="page-item"><a class="page-link" href="{% url 'quiz' %}">Main page</a></li>
      {% endif %}
     
   </ul>

@@ -5,21 +5,37 @@
 font-family: 'MuseoModerno', cursive;
 font-family: 'Roboto', sans-serif;
 */
-html, body {
-  margin: 0;
+html{
+margin: 0;
   padding: 0;
+}
+ body {
+  
   height: 100%;
-  overflow-x: hidden;
-  overflow-y: auto;
+  position: relative;
+  background: rgb(195,235,255);
+  background: -webkit-linear-gradient(to right,	rgb(195,235,255), rgb(91,150,180));
+  background: linear-gradient(to right,	rgb(195,235,255), rgb(91,150,180));
 }
 
-#page-container {
-  position: relative;
-  min-height: 100vh;
+#page-wrap{
+min-height: 100vh;;
+overflow: hidden;
+ display: block;
+ position: relative;
+ padding-bottom: 50px;
 }
- #content-wrap {
-  padding-bottom: 2.5rem;  
+
+
+
+ 
+
+#footer{
+position: absolute;
+
+ width: 100%;
 }
+
 
 .navbar {
 font-family: 'MuseoModerno', cursive;
@@ -44,25 +60,18 @@ font-weight: 500;
 
 }
 
-body {
-  background: rgb(195,235,255);
-  background: -webkit-linear-gradient(to right,	rgb(195,235,255), rgb(91,150,180));
-  background: linear-gradient(to right,	rgb(195,235,255), rgb(91,150,180));
-  
-}
 
 
 
 
 .course-content{
     font-family: 'Roboto', sans-serif;
-    margin-top: 20px;
-    margin-bottom: 15px;
+   
 }
 
 .jumbotron {
    
- margin-top: 15px;
+
    background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;

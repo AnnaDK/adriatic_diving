@@ -16,7 +16,6 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from accounts.views import index
-from django.views.generic import RedirectView
 from accounts import urls as urls_accounts
 from courses import urls as urls_courses
 from cart import urls as urls_cart
@@ -32,14 +31,11 @@ from .settings import MEDIA_ROOT
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', index, name='index'),
-
     url(r'^accounts/', include(urls_accounts)),
     url(r'^courses/', include(urls_courses)),
     url(r'^cart/', include(urls_cart)),
     url(r'^quiz/', include(urls_quiz)),
-    
     url(r'^blog/', include(urls_blog)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
-
-
 ]
+

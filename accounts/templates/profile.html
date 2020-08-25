@@ -2,9 +2,12 @@
 
 
 {% block page_title %}{{user}}'s Profile{% endblock %}
-
+ 
 {% block page_heading %}{{user}}'s Profile{% endblock %}
 
 {% block content%}
+{% include 'navbar.html' %}
+<div class="container">
 <p>{{ profile.email }}</p>
+</div>
 {% endblock %}

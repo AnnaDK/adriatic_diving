@@ -1,12 +1,11 @@
-
-{% extends "base.html" %}
-
-{% block title %}Quiz{% endblock %}
+{% extends 'base.html' %}
  
 {% block content %}
+{% include 'navbar.html' %}
+<div class="container">
 <div class="row justify-content-md-center">
  {% for quiz in quizes %}
-    <div class="col-lg-8 col-lg-offset-2">
+    <div class="col-lg-8">
     <div class="card mt-3 card-quiz ">
   <h5 class="card-header">{{ quiz.name}}</h5>
   <div class="card-body">
@@ -45,5 +44,5 @@
 </div>
 </div>
 
-
+</div>
 {% endblock %}

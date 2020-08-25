@@ -5,4 +5,5 @@ from .models import Quiz
 class QuizForm(forms.ModelForm):
     class Meta:
         model = Quiz
-        fields = ('option_one_count', 'option_two_count', 'option_three_count', 'option_four_count')
+        fields = ('option_one_checkbox', 'option_two_checkbox',
+                  'option_three_checkbox', 'option_four_checkbox')

@@ -1,12 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 {% load bootstrap_tags %}
 {% block title %}Post{% endblock %}
- 
+
 {% block content %}
+{% include 'navbar.html' %}
+<div class="container">
 <div class="row justify-content-md-center">
  
     <div class="col-lg-8 col-lg-offset-2">
- <div class="card mt-3">
+ <div class="card mt-3 mb-2">
   {% if post.image %}
   <img src="{{ MEDIA_URL }}{{ post.image }}" class="card-img-top" style="" alt="...">
         {% endif %}
@@ -58,18 +61,19 @@
  
     <div class="col-lg-8 col-lg-offset-2">
 {% for comment in comments %}
-<div class="card mt-1" >
+<div class="card mb-2" >
   <div class="card-body justify-content-right" >
     <p class="card-text text-muted p-0">From: {{comment.author}} &nbsp; {{comment.created_date}}</p>
-    <p class="card-text text-right">{{comment.text}}</p>
-    <p class="justify-content-end">
-    <a href="{% url 'edit_comment' comment.id %" class="card-link">Edit</a>
+    <p class="card-text ">{{comment.text}}</p>
+    <p>
+    <a href="#" class="card-link">Edit</a>
     <a href="#" class="card-link">Delete</a>
     </p>
   </div>
 </div>
 {% endfor %}
     </div>
+</div>
 </div>
 {% endblock %}
     

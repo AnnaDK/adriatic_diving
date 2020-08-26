@@ -10,7 +10,7 @@ margin: 0;
   padding: 0;
 }
  body {
-  
+ 
   height: 100%;
   position: relative;
   background: rgb(195,235,255);
@@ -19,20 +19,20 @@ margin: 0;
 }
 
 #page-wrap{
-min-height: 100vh;;
+min-height: 100vh;
 overflow: hidden;
  display: block;
  position: relative;
  padding-bottom: 50px;
 }
 
-
-
- 
-
 #footer{
-position: absolute;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
+position: relative;
+ bottom: 0;
  width: 100%;
 }
 
@@ -96,3 +96,4 @@ text-decoration: none!important;
 .form-control{
     list-style: none!important;
 }
+

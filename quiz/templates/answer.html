@@ -12,33 +12,33 @@
   <div class="card-body">
     <h5 class="card-title">{{ quiz.question}}</h5>
     <div class="form-check">
+    
     <form method="POST">
       
     {% csrf_token %}
+    
    
        <div class="form-group form-check">
-  <input class="form-check-input" type="checkbox" value="checkboxvalue" id="defaultCheck1">
-  <label class="form-check-label" for="defaultCheck1">{{quiz.option_one}}</label>
+  <input class="form-check-input" type="checkbox" onclick="myCheckbox1()" id="{{quiz.option_one}}" value="option1">
+  <label class="form-check-label" id="option_one" for="{{quiz.option_one}}">1. {{quiz.option_one}}</label>
 </div>
 <div class="form-group form-check">
-  <input class="form-check-input" type="checkbox" value="{{quiz.option_two}}" id="defaultCheck2" >
-  <label class="form-check-label" for="defaultCheck2">
-   {{quiz.option_two}}
-  </label>
+  <input class="form-check-input" type="checkbox" onclick="myCheckbox2()" id="{{quiz.option_two}}" value="option2">
+  <label class="form-check-label" for="{{quiz.option_two}}">2. {{quiz.option_two}}</label>
 </div>
 <div class="form-group form-check">
-  <input class="form-check-input" type="checkbox" value="{{quiz.option_three}}" id="defaultCheck3">
-  <label class="form-check-label" for="defaultCheck3">
+  <input class="form-check-input" type="checkbox" onclick="myCheckbox3()" id="{{quiz.option_three}}" value="option3">
+  <label class="form-check-label" for="{{quiz.option_three}}">3.
     {{quiz.option_three}}
   </label>
 </div>
 <div class="form-group form-check">
-  <input class="form-check-input" type="checkbox" value="{{quiz.option_four}}" id="defaultCheck4" >
-  <label class="form-check-label" for="defaultCheck4">
+  <input class="form-check-input" type="checkbox" onclick="myCheckbox4()" id="{{quiz.option_four}}" value="option4">
+  <label class="form-check-label" for="{{quiz.option_four}}">4.
     {{quiz.option_four}}
   </label>
 </div>
-<button type="submit" data-target="" class="btn btn-light">Submit</button>
+<button type="submit" data-target=""  class="btn btn-light">Submit</button>
 <div >
 {% if messages %}
 
@@ -47,6 +47,7 @@
     </div>
     {% endif %}
 </div>
+ 
 </form>
     </div>
  <div class="pagination_answer mt-2">
@@ -58,12 +59,12 @@
     </li>
     
     {% else %}
-    <li class="page-item"><a class="page-link" href="{% url 'quiz' %}">Main page</a></li>
+    <li class="page-item"><a class="page-link" onclick="sessionStorage.clear();" href="{% url 'quiz' %}">Main page</a></li>
      {% endif %}
        {% if nextquestion %}
-    <li class="page-item"><a class="page-link" href="{% url 'answer' nextquestion.id %}">next {{ nextquestion }} &raquo;</a></li>
+    <li class="page-item"><a class="page-link"  href="{% url 'answer' nextquestion.id %}">next {{ nextquestion }} &raquo;</a></li>
     {% else %}
-    <li class="page-item"><a class="page-link" href="{% url 'quiz' %}">Main page</a></li>
+    <li class="page-item"><a class="page-link" onclick="sessionStorage.clear();" href="{% url 'quiz' %}">Main page</a></li>
      {% endif %}
     
   </ul>
@@ -72,4 +73,38 @@
 </div>
 </div>
     </div></div>
+    <script >
+myStorage = window.sessionStorage;
+
+function myCheckbox1() {	
+	var checkbox = document.getElementById("{{quiz.option_one}}");
+    sessionStorage.setItem("{{quiz.option_one}}", checkbox.checked);	
+}
+var checked = JSON.parse(sessionStorage.getItem("{{quiz.option_one}}"));
+    document.getElementById("{{quiz.option_one}}").checked = checked;
+
+
+function myCheckbox2() {	
+	var checkbox = document.getElementById("{{quiz.option_two}}");
+    sessionStorage.setItem("{{quiz.option_two}}", checkbox.checked);	
+}
+var checked = JSON.parse(sessionStorage.getItem("{{quiz.option_two}}"));
+    document.getElementById("{{quiz.option_two}}").checked = checked;
+
+function myCheckbox3() {	
+	var checkbox = document.getElementById("{{quiz.option_three}}");
+   sessionStorage.setItem("{{quiz.option_three}}", checkbox.checked);	
+}
+var checked = JSON.parse(sessionStorage.getItem("{{quiz.option_three}}"));
+    document.getElementById("{{quiz.option_three}}").checked = checked;
+
+function myCheckbox4() {	
+	var checkbox = document.getElementById("{{quiz.option_four}}");
+    sessionStorage.setItem("{{quiz.option_four}}", checkbox.checked);	
+}
+var checked = JSON.parse(sessionStorage.getItem("{{quiz.option_four}}"));
+    document.getElementById("{{quiz.option_four}}").checked = checked;
+
+    </script>
+
 {% endblock %}

@@ -21,9 +21,8 @@
   </div>
    <div class="card-footer ">
    <p>
-   
-   <small class="text-muted"><span class="boldtext">Tag:</span> {{ post.tag }} <br>
-    <span class="boldtext ">Views:</span> {{post.views}}
+   <small class="text-muted"><span class="boldtext">Tags:</span> {{ post.tag }} <br>
+    <span class="boldtext ">Views:</span> {{post.views}}<br>
     </small><br>
    
     </p>
@@ -61,6 +60,7 @@
  
     <div class="col-lg-8 col-lg-offset-2">
 {% for comment in comments %}
+
 <div class="card mb-2" >
   <div class="card-body justify-content-right" >
     <p class="card-text text-muted p-0">From: {{comment.author}} &nbsp; {{comment.created_date}}</p>

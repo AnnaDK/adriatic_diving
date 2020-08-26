@@ -29,8 +29,7 @@ def single_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.views += 1
     post.save()
-    comments = Comment.objects.filter(created_date__lte=timezone.now()
-                                      ).order_by('-created_date') 
+    comments = Comment.objects.filter(post=post) 
     newcomment = None 
     if request.method == "POST":
         form = BlogCommentForm(data=request.POST)

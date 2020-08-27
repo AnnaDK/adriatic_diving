@@ -2,4 +2,6 @@
 _pycache_/
 *.pyc
 env.py 
-
+*.png
+static/
+media/

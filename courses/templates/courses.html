@@ -1,4 +1,6 @@
-{% extends 'base.html' %}   {% block content %}
+{% extends 'base.html' %}  
+{% load static from staticfiles %}
+{% block content %}
 {% include 'navbar.html' %}
 <div id="page-container" class="container-fluid">
 
@@ -20,18 +22,15 @@
   {% endfor %}
 </div>
 
-<div class="container container-fluid">
-<div class="row">
-<div class="col-12">
-<p class="home_paragraph">Since the year 2000 we have been providing quality scuba diving services to worldwide customers.
-
-We believe that safety and customer service comes first: we make sure that all of our diving equipment is well preserved and replaced annually to ensure clean, comfortable and working equipment for your dives and courses. We can accommodate all your diving needs and offer a full range of scuba diving courses taught in multiple languages.
-
-For your own equipment as well as for the rental equipment we have a wet-room with a shower. In our workshop, we can take care of smaller equipment problems and minor repairs.
-
-</p>
-</div>
-</div>
+<div class="card text-center">
+  <div class="card-header">
+    
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
 </div>
 
 </div>

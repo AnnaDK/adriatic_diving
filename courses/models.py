@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Course(models.Model):
-    """ To add activity to the database """
+
     name = models.CharField(max_length=260, default='')
     description = models.TextField()
     minimum_age = models.CharField(max_length=100, default='')
@@ -18,4 +18,3 @@ class Course(models.Model):
 
     def __str__(self):
         return self.name
-

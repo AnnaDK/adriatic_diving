@@ -13,11 +13,9 @@ class Quiz(models.Model):
     option_three_checkbox = models.BooleanField(default=False)
     option_four_checkbox = models.BooleanField(default=False)
     answer = models.CharField(max_length=200, default='')
-    
+
     class Meta:
         ordering = ('name',)
 
     def __str__(self):
         return self.name
-
-    

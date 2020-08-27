@@ -1,19 +1,27 @@
-{% extends 'base.html' %}
-{% load static from staticfiles %}
-{% load bootstrap_tags %}
-
-{% block page_title %}Login Page{% endblock %}
-  
-{% block page_heading %}User Login{% endblock %}
-
-{% block content %}
-{% include 'navbar.html' %}
+{% extends 'base.html' %} 
+{% load static from staticfiles %} 
+{% load bootstrap_tags %} 
+{% block page_title %}Login Page{% endblock %} 
+{% block content %} 
+{% include 'navbar.html' %} 
+{% include 'messages.html' %}
 <div id="page-container" class="container">
- <form method="POST">
-      {% csrf_token %}
-      {{ login_form | as_bootstrap }}
-      <button type="submit">Login</button>
-    </form>
-    <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+  <div class="row justify-content-md-center">
+    <div class="col-lg-8 col-lg-offset-2">
+      <div class="card mt-3">
+        <div class="card-header">
+          Log in
+        </div>
+        <div class="card-body">
+          <form method="POST">
+            {% csrf_token %} {{ login_form | as_bootstrap }}
+            <button type="submit">Login</button>
+          </form>
+          <p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-    {% endblock %}
+
+{% endblock %}

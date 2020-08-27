@@ -20,17 +20,17 @@ def our_blog(request):
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
         posts = paginator.page(paginator.num_pages)
-    return render(request, "blogposts.html", {'posts': posts, 
+    return render(request, "blogposts.html", {'posts': posts,
                                               'adverts': adverts})
-    
+
 
 def single_post(request, pk):
-    
+
     post = get_object_or_404(Post, pk=pk)
     post.views += 1
     post.save()
-    comments = Comment.objects.filter(post=post) 
-    newcomment = None 
+    comments = Comment.objects.filter(post=post)
+    newcomment = None
     if request.method == "POST":
         form = BlogCommentForm(data=request.POST)
         if form.is_valid():
@@ -39,13 +39,9 @@ def single_post(request, pk):
             newcomment.save()
             form.save()
             return redirect(single_post, post.id)
-            
+
     else:
         form = BlogCommentForm()
 
-    return render(request, "post.html", {'post': post, 'form': form, 'comments': comments, 
-                                         'newcomment': newcomment })
-
-  
-
-
+    return render(request, "post.html", {'post': post, 'form': form, 'comments': comments,
+                                         'newcomment': newcomment})

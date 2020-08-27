@@ -1,37 +1,27 @@
 {% extends 'base.html' %}  
 {% load static from staticfiles %}
+{% block page_title %}Courses{% endblock %} 
 {% block content %}
 {% include 'navbar.html' %}
 <div id="page-container" class="container-fluid">
-
-
-<div class="row ">
-  {% for course in courses %}
-  <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-    <div class="card mt-3" id="course-card">
-      <img
-        src="{{ MEDIA_URL }}{{ course.image }}"
-        class="card-img-top"
-        alt="..."
-      />
-      <a class="stretched-link" href="{% url 'course' course.id %}"></a>
-      
-    </div>
-  </div>
-
-  {% endfor %}
-</div>
-
-<div class="card text-center">
-  <div class="card-header">
-    
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
+	<div class="row ">
+		{% for course in courses %}
+		<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+			<div class="card mt-3" id="course-card">
+				<img src="{{ MEDIA_URL }}{{ course.image }}" class="card-img-top" alt="..."/>
+				<a class="stretched-link" href="{% url 'course' course.id %}"></a>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<div class="card text-center">
+		<div class="card-header">
+		</div>
+		<div class="card-body">
+			<h5 class="card-title">Special title treatment</h5>
+			<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+			<a href="#" class="btn btn-primary">Go somewhere</a>
+		</div>
+	</div>
 </div>
 {% endblock %}

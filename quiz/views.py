@@ -27,25 +27,18 @@ def quiz_answer(request, pk):
     quiz = get_object_or_404(Quiz, pk=pk)
     form = None
     if request.method == 'POST':
-        
+
         messages.success(request, "Answer: ")
         form = QuizForm(request.POST,  instance=quiz)
         if form.is_valid():
             quiz = form.save()
             return redirect(quiz_answer, quiz.id)
-        
+
     nextquestion = Quiz.objects.filter(id__gt=quiz.id).order_by('id').first()
-    previousquestion = Quiz.objects.filter(id__lt=quiz.id).order_by('id').last()
+    previousquestion = Quiz.objects.filter(
+        id__lt=quiz.id).order_by('id').last()
 
-    return render(request, "answer.html", {'quiz': quiz, 'form': form, 
-                                           'nextquestion': nextquestion, 
-                                           'previousquestion': 
+    return render(request, "answer.html", {'quiz': quiz, 'form': form,
+                                           'nextquestion': nextquestion,
+                                           'previousquestion':
                                            previousquestion})
-
-
-
-
-
-
-
-

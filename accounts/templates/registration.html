@@ -1,19 +1,28 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
-
 {% block page_title %}Registration Page{% endblock %}
-  
 {% block page_heading %}User Registration{% endblock %}
-
 {% block content %}
 {% include 'navbar.html' %}
+{% include 'messages.html' %}
 <div id="page-container" class="container">
-<p>If you have an account, you can <a href="{% url 'login' %}">sign in.</a></p>
- <form method="POST">
-      {% csrf_token %}
-      {{ registration_form | as_bootstrap }}
-      <button type="submit">Register</button>
-    </form>
+	<div class="row justify-content-md-center">
+		<div class="col-lg-8 col-lg-offset-2">
+			<div class="card mt-3">
+				<div class="card-header">
+					Registration
+				</div>
+				<div class="card-body">
+					<p>If you have an account, you can <a href="{% url 'login' %}">sign in.</a></p>
+					<form method="POST">
+						{% csrf_token %}
+						{{ registration_form | as_bootstrap }}
+						<button type="submit">Register</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-    {% endblock %}
+{% endblock %}

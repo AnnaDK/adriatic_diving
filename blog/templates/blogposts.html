@@ -1,70 +1,62 @@
 {% extends 'base.html' %}
- {% load static from staticfiles %}
+{% load static from staticfiles %}
+{% block page_title %}Blog{% endblock %} 
 {% block content %}
 {% include 'navbar.html' %}
-  <div id="page-container" class="container">
- 
-  <div class="row">
-  
-    <div class="col-12 col-lg-10">
-     {% for post in posts %}
-    <div class="card mt-3 mb-2 ">
-  <div class="card-header">
-   <p><span class="boldtext">Author:</span> Adriatic Diving</p>
-   <p><span class="boldtext">Published on:</span> {{ post.created_date }} </p>
-  </div>
-  <div class="card-body">
-    <h5 class="card-title">{{ post.title }}</h5>
-    <p class="card-text">{{ post.short_description }}</p>
-    <a href="{% url 'post' post.id %}"  class="btn btn-outline-dark">Read more</a>
-  </div>
-  <div class="card-footer text-muted">
-  <p><span class="boldtext">Views:</span> {{post.views}} <br>
-  <span class="boldtext">Tags:</span> {{ post.tag }}<br>
+<div id="page-container" class="container">
+	<div class="row">
+		<div class="col-12 col-lg-10">
+			{% for post in posts %}
+			<div class="card mt-3 mb-2 ">
+				<div class="card-header">
+					<p><span class="boldtext">Author:</span> Adriatic Diving</p>
+					<p><span class="boldtext">Published on:</span> {{ post.created_date }} </p>
+				</div>
+				<div class="card-body">
+					<h5 class="card-title">{{ post.title }}</h5>
+					<p class="card-text">{{ post.short_description }}</p>
+					<a href="{% url 'post' post.id %}" class="btn btn-outline-dark">Read more</a>
+				</div>
+				<div class="card-footer text-muted">
+					<p><span class="boldtext">Views:</span> {{post.views}} <br>
+						<span class="boldtext">Tags:</span> {{ post.tag }}<br>
   </p>
-     
-  </div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+		<div class="col-12 col-lg-2">
+			<div class="card text-center mt-3" style="width: 15rem;">
+				<div class="card-body">
+					<h5 class="card-title">Special title treatment</h5>
+					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			</div>
+			{% include 'advert.html' %}
+		</div>
+	</div>
 </div>
-{% endfor %}
-</div>
-
-    <div class="col-12 col-lg-2">
-    <div class="card text-center mt-3" style="width: 15rem;">
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-     {% include 'advert.html' %}
-</div>
-
-</div>
-
-
-  </div>
-
 <div class="row ">
-<div class="col">
-
-
-<nav aria-label="Page navigation" class="pagination_blog mb-3">
-  <ul class="pagination justify-content-center">
-    <li class="page-item ">
-    {% if posts.has_previous %}
-      <a class="page-link" href="?page={{ posts.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
-      {% endif %}
-    </li>
-    <li class="page-item"><a class="page-link" href="#"> Page {{ posts.number }} of {{ posts.paginator.num_pages }}.</a></li>
-    <li class="page-item">
-    {% if posts.has_next %}
-   <a class="page-link" href="?page={{ posts.next_page_number }}">Next</a>
-      {% endif %}
-    </li>
-  </ul>
-</nav>
-
+	<div class="col">
+		<nav aria-label="Page navigation" class="pagination_blog mb-3">
+			<ul class="pagination justify-content-center">
+				<li class="page-item ">
+					{% if posts.has_previous %}
+					<a class="page-link" href="?page={{ posts.previous_page_number }}" tabindex="-1"
+						aria-disabled="true">Previous</a>
+					{% endif %}
+				</li>
+				<li class="page-item"><a class="page-link" href="#"> Page {{ posts.number }} of
+						{{ posts.paginator.num_pages }}.</a></li>
+				<li class="page-item">
+					{% if posts.has_next %}
+					<a class="page-link" href="?page={{ posts.next_page_number }}">Next</a>
+					{% endif %}
+				</li>
+			</ul>
+		</nav>
+	
 </div>
 </div>
-
 {% endblock %}

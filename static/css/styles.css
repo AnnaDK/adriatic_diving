@@ -1,78 +1,72 @@
-@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;300;400;500;600;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100;1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:wght@200;300;400;500;600;800&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100;1,300&display=swap");
 
 /* 
 
 font-family: 'MuseoModerno', cursive;
 font-family: 'Roboto', sans-serif;
 */
-html{
-margin: 0;
+html {
+  margin: 0;
   padding: 0;
 }
- body {
- 
+body {
   height: 100%;
   position: relative;
-  background: rgb(195,235,255);
-  background: -webkit-linear-gradient(to right,	rgb(195,235,255), rgb(91,150,180));
-  background: linear-gradient(to right,	rgb(195,235,255), rgb(91,150,180));
+  background: rgb(195, 235, 255);
+  background: -webkit-linear-gradient(
+    to right,
+    rgb(195, 235, 255),
+    rgb(91, 150, 180)
+  );
+  background: linear-gradient(to right, rgb(195, 235, 255), rgb(91, 150, 180));
 }
 
-#page-wrap{
-min-height: 100vh;
-overflow: hidden;
- display: block;
- position: relative;
- padding-bottom: 50px;
+#page-wrap {
+  min-height: 100vh;
+  overflow: hidden;
+  display: block;
+  position: relative;
+  padding-bottom: 50px;
 }
 
-#footer{
-    margin-top: 40px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+#footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 
-position: relative;
- bottom: 0;
- width: 100%;
+  position: relative;
+  bottom: 0;
+  width: 100%;
 }
-
 
 .navbar {
-font-family: 'MuseoModerno', cursive;
-font-weight: 500;
-box-shadow: -2px 6px 9px 4px rgba(71,71,70,0.59);}
+  font-family: "MuseoModerno", cursive;
+  font-weight: 500;
+  box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
+}
 
-.page-footer{
-    font-family: 'MuseoModerno', cursive;
-    box-shadow: -2px 6px 9px 4px rgba(71,71,70,0.59);
-    background-color: white;
+.page-footer {
+  font-family: "MuseoModerno", cursive;
+  box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
+  background-color: white;
 }
 .card {
-font-family: 'Roboto', sans-serif;
-font-size: 17px;
-box-shadow: -2px 6px 9px 4px rgba(71,71,70,0.59);
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
 }
 
 .navbar-brand {
- 
-font-size: 22px;
-font-weight: 500;
-
+  font-size: 22px;
+  font-weight: 500;
 }
 
-
-
-
-
-.course-content{
-    font-family: 'Roboto', sans-serif;
-   
+.course-content {
+  font-family: "Roboto", sans-serif;
 }
 
 .jumbotron {
-   
-
-   background-size: cover;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
@@ -81,19 +75,26 @@ font-weight: 500;
   transform: translateY(2px);
   box-shadow: 0 1px 0 0 #ccc;
 }
-.stretched-link{
-text-decoration: none!important;
+.stretched-link {
+  text-decoration: none !important;
 }
 
-#cart{
-    font-family: 'MuseoModerno', cursive;
+#cart {
+  font-family: "MuseoModerno", cursive;
 }
 
 .btn-light {
-    background-color: lightblue!important;
+  background-color: lightblue !important;
 }
 
-.form-control{
-    list-style: none!important;
+.form-control {
+  list-style: none !important;
 }
 
+.alert-success{
+    font-family: "MuseoModerno", cursive;
+    font-size: 22px;
+    font-weight: 400;
+    color: rgba(27, 25, 172, 0.925);
+    text-align: center;
+}

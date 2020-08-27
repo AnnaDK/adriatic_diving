@@ -1,78 +1,67 @@
 {% extends 'base.html' %}
- {% load static from staticfiles %}
+{% load static from staticfiles %}
+{% block page_title %}Course Page{% endblock %} 
 {% block content %}
 {% include 'navbar.html' %}
 <div id="page-container" class="course-content container">
- <div class="row ">
-
-<div class="col-sm-12 col-md-12 col-lg-6">
-  <img src="{{ MEDIA_URL }}{{ course.image }}"  class="img-fluid rounded mx-auto d-block float-left"  alt="...">
+	<div class="row ">
+		<div class="col-sm-12 col-md-12 col-lg-6 mt-3">
+			<img src="{{ MEDIA_URL }}{{ course.image }}"  class="img-fluid rounded mx-auto d-block float-left"  alt="...">
 </div>
-<div class="col-sm-12 col-md-12 col-lg-6">
-  <div class="media-body">
-    <h5 class="mt-0">{{ course.name }}</h5>
-    <p>{{course.description}}</p>
-    <h3>Facts</h3>
-    <table class="table table-responsive-sm">
- 
-  <tbody>
-    <tr>
-      <th scope="row">
-Minimum Age:</th>
-      <td>{{course.minimum_age}}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">Certification Prerequisites:</th>
-      <td>{{course.certification_prior}}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">Academic Sessions:</th>
-      <td colspan="2">{{course.academic_sessions}}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">Pool/Confined Water Sessions:</th>
-      <td>{{course.confined_water}}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">Open Water Dives:</th>
-      <td>{{course.openwater_dives}}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">Maximum Training Depth:</th>
-      <td>{{course.maximum_depth}}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">Suggested Duration:</th>
-      <td>{{course.duration}}</td>
-      
-    </tr>
-    <tr>
-      <th scope="row">Price:</th>
-      <td><strong>{{ course.price }}</strong><i class="fas fa-euro-sign pl-1"></i></td>
-      
-    </tr>
-  </tbody>
-</table>
-    
-    <form method="post" action="{% url 'add_to_cart' course.id %}">
-    {% csrf_token %}
-    <div class="input-group">
-    <input name="quantity" type="number" min="1" max="10" class="form-control" placeholder="Quantity">
-    <span class="input-group-btn">
+			<div class="col-sm-12 col-md-12 col-lg-6 mt-3">
+				<div class="media-body">
+					<h5 class="mt-0">{{ course.name }}</h5>
+					<p>{{course.description}}</p>
+					<h3>Facts</h3>
+					<table class="table table-responsive-sm">
+						<tbody>
+							<tr>
+								<th scope="row">
+									Minimum Age:</th>
+								<td>{{course.minimum_age}}</td>
+							</tr>
+							<tr>
+								<th scope="row">Certification Prerequisites:</th>
+								<td>{{course.certification_prior}}</td>
+							</tr>
+							<tr>
+								<th scope="row">Academic Sessions:</th>
+								<td >{{course.academic_sessions}}</td>
+							</tr>
+							<tr>
+								<th scope="row">Pool/Confined Water Sessions:</th>
+								<td>{{course.confined_water}}</td>
+							</tr>
+							<tr>
+								<th scope="row">Open Water Dives:</th>
+								<td>{{course.openwater_dives}}</td>
+							</tr>
+							<tr>
+								<th scope="row">Maximum Training Depth:</th>
+								<td>{{course.maximum_depth}}</td>
+							</tr>
+							<tr>
+								<th scope="row">Suggested Duration:</th>
+								<td>{{course.duration}}</td>
+							</tr>
+							<tr>
+								<th scope="row">Price:</th>
+								<td><strong>{{ course.price }}</strong><i class="fas fa-euro-sign pl-1"></i></td>
+							</tr>
+						</tbody>
+					</table>
+					<form method="post" action="{% url 'add_to_cart' course.id %}">
+						{% csrf_token %}
+						<div class="input-group">
+							<input name="quantity" type="number" min="1" max="10" class="form-control" placeholder="Quantity">
+							<span class="input-group-btn">
     <button class="btn btn-success" type="submit">Buy </button>
-    
     </span>
-    </div>
-    </form>
-  </div>
-</div>
-</div>
-</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
-{% endblock %}
+	{% endblock %}

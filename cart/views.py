@@ -1,7 +1,5 @@
 from django.shortcuts import render, redirect, reverse
 
-# Create your views here.
-
 
 def view_cart(request):
     """ A view that renders the cart contents page"""
@@ -11,7 +9,6 @@ def view_cart(request):
 def add_to_cart(request, id):
     """Add a quantity of the specified product to the cart"""
     quantity = int(request.POST.get('quantity'))
-
     cart = request.session.get('cart', {})
     if id in cart:
         cart[id] = int(cart[id]) + quantity

@@ -1,13 +1,23 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
-
 {% block page_title %}{{user}}'s Profile{% endblock %}
- 
-{% block page_heading %}{{user}}'s Profile{% endblock %}
-
+ {% block page_heading %}{{user}}'s Profile{% endblock %}
 {% block content%}
 {% include 'navbar.html' %}
+{% include 'messages.html' %}
 <div id="page-container" class="container">
-<p>{{ profile.email }}</p>
+	<div class="row justify-content-md-center">
+		<div class="col-lg-8 col-lg-offset-2">
+			<div class="card mt-3">
+				<div class="card-header">
+					Profile
+				</div>
+				<div class="card-body">
+					<p>{{ profile.email }}</p>
+					<p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 {% endblock %}

@@ -1,15 +1,12 @@
 {% for advert in adverts %}
-    <div class="card  mt-3" style="width: 15rem;" >
- {% if advert.image %}
-  <img src="{{ MEDIA_URL }}{{ advert.image }}" class="card-img-top" alt="...">
-        {% endif %} 
-  <div class="card-body">
-    <h5 class="card-title">{{ advert.title}}</h5>
-    <p class="card-text">{{advert.short_description}}</p>
-    <a href="{{advert.link}}" class="card-link">Click here</a>
-    
-  </div>
-  
- 
+<div class="card  mt-3" style="width: 15rem;">
+	{% if advert.image %}
+	<img src="{{ MEDIA_URL }}{{ advert.image }}" class="card-img-top" alt="...">
+        {% endif %}
+	<div class="card-body">
+		<h5 class="card-title">{{ advert.title}}</h5>
+		<p class="card-text">{{advert.short_description}}</p>
+		<a href="{{advert.link}}" class="card-link">Click here</a>
+	</div>
 </div>
- {% endfor %}
+{% endfor %}

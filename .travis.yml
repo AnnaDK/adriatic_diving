@@ -1,6 +1,9 @@
 language: python
 python:
     - "3.8.3"
-install: "pip install -r requirements.txt"
+install:
+  - pip install -r requirements.txt
+env:
+  - SECRET_KEY="fakekey" DEVELOPMENT="1"
 script:
-    - SECRET_KEY = os.environ.get("SECRET_KEY") ./manage.py test
+  - python manage.py test

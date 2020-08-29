@@ -45,8 +45,12 @@
 								<td>{{course.duration}}</td>
 							</tr>
 							<tr>
-								<th scope="row">Price:</th>
+								<th scope="row">Full Price:</th>
 								<td><strong>{{ course.price }}</strong><i class="fas fa-euro-sign pl-1"></i></td>
+							</tr>
+                            <tr>
+								<th scope="row">Online discount:</th>
+								<td><strong>- 15 %</strong></td>
 							</tr>
 						</tbody>
 					</table>
@@ -59,6 +63,11 @@
     </span>
 						</div>
 					</form>
+					<div class="py-3  border-bottom">
+						<a class="btn btn-block btn-success" href="{% url 'view_cart' %}" role="button">Schopping Cart</a>
+						<a class="btn btn-block btn-dark" href="{% url 'courses' %}" role="button">All Courses</a>
+					</div>
+                     
 				</div>
 			</div>
 		</div>

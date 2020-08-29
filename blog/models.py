@@ -12,6 +12,8 @@ class Post(models.Model):
     tag = models.CharField(max_length=30, default='')
     image = models.ImageField(upload_to='images', blank=True,
                               default='images/None/no-img.jpg')
+    small_image = models.ImageField(upload_to='images', blank=True,
+                              default='images/None/no-img.jpg')
   
     def __unicode__(self):
         return self.title

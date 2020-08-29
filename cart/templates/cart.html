@@ -41,7 +41,7 @@
 												<div class="p-2">
 
 													<div class="ml-3 d-inline-block align-middle">
-														<h5 class="mb-0"> <a href="{{ item.course.name }}"
+														<h5 class="mb-0"> <a href="{% url 'course' item.id %}"
 																class="text-dark d-inline-block align-middle">{{ item.course.name }}</a>
 														</h5>
 													</div>
@@ -75,6 +75,14 @@
 								<strong class="text-muted">Order summary</strong>
 								<h5 class="font-weight-bold">{{ total }}<i class="fas fa-euro-sign pl-1"></i></h5>
 							</li>
+                            <li class="d-flex justify-content-between py-3 border-bottom">
+                            <strong class="text-muted">Our online discount</strong>
+								<h5 class="font-weight-bold">- 15 %</h5>
+                            </li>
+                            <li class="d-flex justify-content-between py-3 border-bottom">
+                            <strong class="text-muted">To pay</strong>
+                                <h5 class="font-weight-bold">{{ final_total }}<i class="fas fa-euro-sign pl-1"></i></h5>
+                            </li>
 						</ul><a href="{% url 'checkout' %}" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to
 							checkout</a>
 					</div>

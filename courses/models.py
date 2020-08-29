@@ -13,7 +13,6 @@ class Course(models.Model):
     maximum_depth = models.CharField(max_length=100, default='')
     duration = models.CharField(max_length=100, default='')
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    online_offer_price = models.DecimalField(max_digits=6, decimal_places=2)
     image = models.ImageField(upload_to='images')
 
     def __str__(self):

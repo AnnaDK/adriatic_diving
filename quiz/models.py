@@ -15,7 +15,7 @@ class Quiz(models.Model):
     answer = models.CharField(max_length=200, default='')
 
     class Meta:
-        ordering = ('name',)
+        ordering = ('id',)
 
     def __str__(self):
         return self.name

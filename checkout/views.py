@@ -24,9 +24,15 @@ def checkout(request):
 
             cart = request.session.get('cart', {})
             total = 0
+            course_count = 0
+            discount = 0
+            final_total = 0
             for id, quantity in cart.items():
                 course = get_object_or_404(Course, pk=id)
                 total += quantity * course.price
+                course_count += quantity
+                discount = total * 15 / 100
+                final_total = total - discount
                 order_line_item = OrderLineItem(
                     order=order,
                     course=course,
@@ -36,7 +42,7 @@ def checkout(request):
 
             try:
                 customer = stripe.Charge.create(
-                    amount=int(total * 100),
+                    amount=int(final_total * 100),
                     currency="EUR",
                     description=request.user.email,
                     card=payment_form.cleaned_data['stripe_id'],

@@ -23,21 +23,29 @@
         <div class="card-footer">
           <p>
             <small class="text-muted"><span class="boldtext">Tags:</span> {{ post.tag }} <br />
-              <span class="boldtext">Views:</span> {{post.views}}<br /> </small><br />
+              <span class="boldtext">Views:</span> {{post.views}}<br /> <br />
+              {% with comments.count as commentstotal %}
+              <span class="boldtext">Comments:</span> {{ commentstotal }}<br /> </small><br />
+              {% endwith %}
           </p>
+            
 
           <div class="accordion" id="accordionExample">
             <div class="card-header" id="headingTwo">
-              <h2 class="mb-0">
+			<h2 class="mb-0">
 				<a href="{% url 'blogposts' %}" class="btn btn-link btn-outline-dark m-2" role="button" aria-pressed="true">Back to
 					Blog</a>
-                 <button class="btn btn-link collapsed btn-outline-dark m-2" type="button" data-toggle="collapse"
-                  data-target="#collapseTwo"  aria-controls="collapseTwo" >
-                  Comment
-                </button>
-              </h2>
+				{% if user.is_authenticated %}
+				<button class="btn btn-link collapsed btn-outline-dark m-2" type="button" data-toggle="collapse"
+			                  data-target="#collapseTwo"  aria-controls="collapseTwo" >
+			                  Comment
+			                </button>
+				{% else %}
+				<a href="{% url 'login' %}" class="btn btn-link btn-outline-dark m-2" role="button">Log in to leave a comment</a>
+			{% endif %}
+			</h2>
             </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
               <div class="card-body">
                 <form method="POST">
                   <div class="form-group">
@@ -54,17 +62,17 @@
   </div>
   <div class="row justify-content-md-center">
     <div class="col-lg-8 col-lg-offset-2">
+
       {% for comment in comments %}
+      {% if comment.approved_comment %}
       <div class="card mb-2">
         <div class="card-body justify-content-right">
           <p class="card-text text-muted p-0">
-            From: {{comment.author}} &nbsp; {{comment.created_date}}
+            From: {{comment.name}} &nbsp; {{comment.created_date}}
           </p>
-          <p class="card-text">{{comment.text}}</p>
-          <p>
-            <a href="#" class="card-link">Edit</a>
-            <a href="#" class="card-link">Delete</a>
-          </p>
+          <p class="card-text">{{comment.text|linebreaks}}</p>
+          {% endif %}
+          
         </div>
       </div>
       {% endfor %}

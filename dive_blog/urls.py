@@ -5,4 +5,6 @@ from .views import our_blog, single_post
 urlpatterns = [
     url(r'^$', our_blog, name='blogposts'),
     url(r'^(?P<pk>\d+)/', single_post, name='post'),
+    # url(r'/approve/', comment_approve, name='comment_approve'),
+    # url(r'/remove/', comment_remove, name='comment_remove'),
   ]

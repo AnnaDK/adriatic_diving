@@ -1,15 +1,18 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+# Create your views here.
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
-from .models import Post, Comment, Advert
+from .models import BlogPost, BlogComment, BlogAdvert
 from .forms import BlogCommentForm
+from django.contrib import messages
 
 
 def our_blog(request):
-    posts = Post.objects.filter(created_date__lte=timezone.now()
+    posts = BlogPost.objects.filter(created_date__lte=timezone.now()
                                 ).order_by('-created_date')
-    adverts = Advert.objects.all()
+    adverts = BlogAdvert.objects.all()
     paginator = Paginator(posts, 4)  # Show 5 contacts per page
 
     page = request.GET.get('page')
@@ -25,13 +28,12 @@ def our_blog(request):
                                               'adverts': adverts})
 
 
-@login_required
 def single_post(request, pk):
 
-    post = get_object_or_404(Post, pk=pk)
+    post = get_object_or_404(BlogPost, pk=pk)
     post.views += 1
     post.save()
-    comments = Comment.objects.filter(post=post)
+    comments = BlogComment.objects.filter(post=post)
     newcomment = None
     if request.method == "POST":
         form = BlogCommentForm(data=request.POST)
@@ -40,6 +42,7 @@ def single_post(request, pk):
             newcomment.post = post
             newcomment.save()
             form.save()
+            messages.success(request, 'your comment is awaiting an approval.')
             return redirect(single_post, post.id)
 
     else:
@@ -47,3 +50,16 @@ def single_post(request, pk):
 
     return render(request, "post.html", {'post': post, 'form': form, 'comments': comments,
                                          'newcomment': newcomment})
+
+
+"""def comment_approve(request, pk):
+    comment = get_object_or_404(BlogComment, pk=pk)
+    comment.approve()
+    return redirect('single_post', pk=comment.post.pk)
+
+
+@login_required
+def comment_remove(request, pk):
+    comment = get_object_or_404(BlogComment, pk=pk)
+    comment.delete()
+    return redirect('single_post', pk=comment.post.pk) """

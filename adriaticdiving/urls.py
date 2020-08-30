@@ -20,7 +20,7 @@ from accounts import urls as urls_accounts
 from courses import urls as urls_courses
 from cart import urls as urls_cart
 from quiz import urls as urls_quiz
-from blog import urls as urls_blog
+from dive_blog import urls as urls_dive_blog
 from checkout import urls as urls_checkout
 from django.views import static
 from .settings import MEDIA_ROOT
@@ -37,7 +37,7 @@ urlpatterns = [
     url(r'^cart/', include(urls_cart)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^quiz/', include(urls_quiz)),
-    url(r'^blog/', include(urls_blog)),
+    url(r'^dive_blog/', include(urls_dive_blog)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]
 

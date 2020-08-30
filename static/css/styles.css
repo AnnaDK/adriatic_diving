@@ -47,6 +47,7 @@ body {
 
 .page-footer {
   font-family: "MuseoModerno", cursive;
+  font-size: 15px;
   box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
   background-color: white;
 }

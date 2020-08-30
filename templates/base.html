@@ -28,13 +28,12 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
 
 <script type="text/javascript">
+ const emjs = '{{EMAILJS_USER_ID}}';
    (function(){
-      emailjs.init("user_s4RVkzg99PAXo4f1SDiFd");
+      emailjs.init(emjs);
    })();
 </script>
- <script type="text/javascript">
-        const ejs = '{{emailjs_user_id}}';
-    </script>
+  
     <script src="{% static 'js/script.js' %}"></script>
 </head>
 
@@ -62,7 +61,7 @@ contactForm.addEventListener('submit', function (event) {
     const data = {
         service_id: "gmail",
         template_id: "contact_form",
-        user_id: "user_s4RVkzg99PAXo4f1SDiFd",
+        user_id: emjs,
         template_params: {
             "name": contactForm.name.value,
             "email": contactForm.email.value,

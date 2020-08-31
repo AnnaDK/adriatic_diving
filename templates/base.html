@@ -28,13 +28,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
 
 <script type="text/javascript">
- const emjs = '{{EMAILJS_USER_ID}}';
-   (function(){
-      emailjs.init(emjs);
-   })();
+
 </script>
   
-    <script src="{% static 'js/script.js' %}"></script>
+  
 </head>
 
 <body>
@@ -47,7 +44,10 @@
 {% include 'footer.html' %}
 <script>
 /* function reset form in modal window.  */
-
+ const emjs = '{{EMAILJS_USER_ID}}';
+   (function(){
+      emailjs.init(emjs);
+   })();
 $("#resetBtn").click(function () {
     $(".form-control").val("");
 });

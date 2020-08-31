@@ -13,8 +13,6 @@ import os
 
 # To import the env.py secret_keys
 
-if os.path.exists('env.py'):
-    import env
 
 import dj_database_url
 
@@ -29,7 +27,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8080-ca39f714-fd9b-4d39-b394-584f289eec81.ws-eu01.gitpod.io', 'adriatic-diving.herokuapp.com']
 

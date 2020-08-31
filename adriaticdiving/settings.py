@@ -51,9 +51,7 @@ INSTALLED_APPS = [
     'dive_blog',
     'checkout',
     'storages',
-    
-    
-]
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -149,10 +147,7 @@ AWS_S3_OBJECT_PARAMETERS = {
     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
     'CacheControl': 'max-age=94608000'
 }
-# AWS_S3_HOST = 's3.eu-central-1.amazonaws.com'
-# AWS_S3_ADDRESSING_STYLE = "path"
-# S3_USE_SIGV4 = True
-# AWS_S3_SIGNATURE_VERSION = "s3v4" 
+
 AWS_STORAGE_BUCKET_NAME = 'anna-ecommerce'
 AWS_S3_REGION_NAME = 'eu-central-1'
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
@@ -165,7 +160,6 @@ EMAILJS_USER_ID = os.getenv('EMAILJS_USER_ID')
 
 STATICFILES_LOCATION = 'static'
 STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-
 
 
 STATIC_URL = '/static/'

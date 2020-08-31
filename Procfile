@@ -1,1 +1,1 @@
-web: gunicorn adriatic_diving.wsgi:application
+web: gunicorn adriaticdiving.wsgi:application

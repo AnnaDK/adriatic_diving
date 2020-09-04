@@ -4,6 +4,26 @@
 {% block content %}
 {% include 'navbar.html' %}
 <div id="page-container" class="container">
+<div class="row justify-content-md-center">
+<div class="col-lg-8">
+{% if quizes.has_previous %}
+<div class="card mt-3 card-quiz">
+				<div class="card-body">
+					<h6 class="card-title justify-content-center"></h6>
+					<p class="card-text mute text-center"><small>Quick Quiz for Open Water Divers & Scuba Divers </small> </p>
+					
+				</div>
+			</div>
+{% else %}
+ <div class="card mt-3 card-quiz">
+				<div class="card-body">
+					<h6 class="card-title justify-content-center"></h6>
+					<p class="card-text mute text-center"><small>Quick Quiz for Open Water Divers & Scuba Divers <br>Choice an answer and press "Submit" to see the right one.</small> </p>
+					
+				</div>
+			</div>
+            {% endif %}
+</div></div>
 	<div class="row justify-content-md-center">
 		{% for quiz in quizes %}
 		<div class="col-lg-8">

@@ -9,7 +9,7 @@
 			{% for post in posts %}
 			<div class="card mt-3 mb-2 ">
 				<div class="card-header">
-					<p><span class="boldtext">Author:</span> Adriatic Diving</p>
+					<p><span class="boldtext">Author:</span> {{ post.author }}</p>
 					<p><span class="boldtext">Published on:</span> {{ post.created_date }} </p>
 				</div>
 				<div class="card-body">

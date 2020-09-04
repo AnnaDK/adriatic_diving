@@ -1,6 +1,3 @@
-from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-# Create your views here.
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.utils import timezone
@@ -11,7 +8,7 @@ from django.contrib import messages
 
 def our_blog(request):
     posts = BlogPost.objects.filter(created_date__lte=timezone.now()
-                                ).order_by('-created_date')
+                                    ).order_by('-created_date')
     adverts = BlogAdvert.objects.all()
     paginator = Paginator(posts, 4)  # Show 5 contacts per page
 
@@ -48,18 +45,7 @@ def single_post(request, pk):
     else:
         form = BlogCommentForm()
 
-    return render(request, "post.html", {'post': post, 'form': form, 'comments': comments,
+    return render(request, "post.html", {'post': post, 'form': form, 
+                                         'comments': comments,
                                          'newcomment': newcomment})
 
-
-"""def comment_approve(request, pk):
-    comment = get_object_or_404(BlogComment, pk=pk)
-    comment.approve()
-    return redirect('single_post', pk=comment.post.pk)
-
-
-@login_required
-def comment_remove(request, pk):
-    comment = get_object_or_404(BlogComment, pk=pk)
-    comment.delete()
-    return redirect('single_post', pk=comment.post.pk) """

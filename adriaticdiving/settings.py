@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 
 # To import the env.py secret_keys
-
+if os.path.exists('env.py'):
+    import env
 
 import dj_database_url
 
@@ -27,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8080-ca39f714-fd9b-4d39-b394-584f289eec81.ws-eu01.gitpod.io', 'adriatic-diving.herokuapp.com']
 
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
     'dive_blog',
     'checkout',
     'storages',
+    'ckeditor',
     ]
 
 MIDDLEWARE = [
@@ -80,12 +82,36 @@ TEMPLATES = [
         },
     },
 ]
+# CKEditor Configuration Settings
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        # 'toolbar': 'Custom',
+        'width': '461px',
+        'height': 'auto',
+        # 'toolbar_Custom': [
+        #     ['Bold', 'Italic', 'Underline'],
+        #     ['NumberedList', 'BulletedList'],
+        # ],
+    }
+}
+
 
 WSGI_APPLICATION = 'adriaticdiving.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}"""
+
+
+
+
 
 if "DATABASE_URL" in os.environ:
     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}

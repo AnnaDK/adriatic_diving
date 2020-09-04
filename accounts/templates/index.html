@@ -9,14 +9,14 @@
 		<h1 class="display-4">Let's Dive!</h1>
 
 		<h2>Explore
-			Our Locations</h2>
+			underwater world with us.</h2>
 		<p class="lead">
-			Independent if you are a beginner or an experienced diver, we will find the right diving spot for you.</p>
+        Welcome in our
+        SSI Diving Center
+		</p>
 		<hr class="my-4">
 		<h2>Get Certified</h2>
-		<p>Whether you are diving for the first time or you are looking to expand your knowledge and to improve your
-			diving skills, the "Adriatic Diving" DC team will make your learning experience an unforgettable experience.
-		</p>
+		<p>We believe that safety and customer service come first. Our team of multilingual instructors, divemasters, and volunteers work hard to make sure that all of our students and divers leave our school with a passion for diving.</p>
 		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 	</div>
 
@@ -24,31 +24,38 @@
 		<div class="card bg-light">
 
 			<div class="card-body ">
-				<h5 class="card-title">Card title</h5>
-				<p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional
-					content. This content is a little bit longer.</p>
-				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+				<h5 class="card-title">Do you want to get certified?</h5>
+				<p class="card-text">With our professional and experienced instructors you can start your journey of
+					becoming a scuba diver or continue your education.</p>
+			</div>
+			<div class="card-footer text-muted text-right">
+				<a href="{% url 'courses' %}" class="card-link"><i class="fas fa-angle-double-right"></i><i class="fas fa-angle-double-right"></i></a>
 			</div>
 		</div>
 		<div class="card bg-light">
 
 			<div class="card-body">
-				<h5 class="card-title">Card title</h5>
-				<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+				<h5 class="card-title">Welcome in our Blog</h5>
+				<p class="card-text">In our blog you can find news, interesting articles, tips and information.</p>
+
+			</div>
+			<div class="card-footer text-muted text-right">
+				<a href="{% url 'blogposts' %}" class="card-link"><i class="fas fa-angle-double-right"></i><i class="fas fa-angle-double-right"></i></a>
 			</div>
 		</div>
 		<div class="card bg-light">
 
 			<div class="card-body">
-				<h5 class="card-title">Card title</h5>
-				<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-				<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-			</div>
+				<h5 class="card-title">Check yourself.</h5>
+				<p class="card-text">Want to check or update your basic knowledge about diving? Take our Quick Quiz for
+					Open Water Divers & Scuba Divers </p>
 
+			</div>
+			<div class="card-footer text-muted text-right">
+				<a href="{% url 'quiz' %}" class="card-link"><i class="fas fa-angle-double-right"></i><i class="fas fa-angle-double-right"></i></a>
+			</div>
 		</div>
 
 	</div>
 </div>
-
 {% endblock %}

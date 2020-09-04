@@ -15,15 +15,16 @@
 		<div class="card-body">
           <h5 class="card-title">{{ post.title }}</h5>
           <p>
+            <span class="boldtext">Author:</span> {{ post.author }}<br>
             <span class="boldtext">Published on:</span> {{ post.created_date }}
           </p>
           <p class="card-text"></p>
-          <p>{{ post.post_content }}</p>
+          <p>{{ post.post_content|safe }}</p>
         </div>
         <div class="card-footer">
           <p>
             <small class="text-muted"><span class="boldtext">Tags:</span> {{ post.tag }} <br />
-              <span class="boldtext">Views:</span> {{post.views}}<br /> <br />
+              <span class="boldtext">Views:</span> {{post.views}}<br /> 
               {% with comments.count as commentstotal %}
               <span class="boldtext">Comments:</span> {{ commentstotal }}<br /> </small><br />
               {% endwith %}

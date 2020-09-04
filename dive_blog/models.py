@@ -1,19 +1,21 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 from django.utils import timezone
 
 
 class BlogPost(models.Model):
      
     title = models.CharField(max_length=200)
-    short_description = models.TextField(max_length=500, default='')
-    post_content = models.TextField(blank=True)
+    author = models.CharField(max_length=200, unique=False, default='')
+    short_description = models.TextField(max_length=500)
+    post_content = RichTextField()
     created_date = models.DateTimeField(default=timezone.now)
     views = models.IntegerField(default=0)
     tag = models.CharField(max_length=30, default='')
     image = models.ImageField(upload_to='images', blank=True,
                               default='images/None/no-img.jpg')
     small_image = models.ImageField(upload_to='images', blank=True,
-                              default='images/None/no-img.jpg')
+                                    default='images/None/no-img.jpg')
     
     def approved_comments(self):
         return self.comments.filter(approved_comment=True)

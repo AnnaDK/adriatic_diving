@@ -30,9 +30,20 @@
 				<li {% if request.resolver_match.url_name == 'registration' %}class="active" {% endif %}>
 					<a id="register" class="nav-item nav-link" href="{% url 'registration' %}">Register</a></li>
 				{% endif %}
+
+                {% if course_count > 0 %}
+                 
 				<div {% if request.resolver_match.url_name == 'view_cart' %}class="active" {% endif %}>
+					<a id="cart" class="nav-item nav-link " href="{% url 'view_cart' %}">
+                  <i class="fas fa-shopping-cart pt-1"></i> <label class="badge badge-warning">{{ course_count }}</label>
+                    </a></div>
+                      {% else %}
+                      <div {% if request.resolver_match.url_name == 'view_cart' %}class="active" {% endif %}>
 					<a id="cart" class="nav-item nav-link" href="{% url 'view_cart' %}">
-                    <i class="fas fa-shopping-cart pt-1"></i></a></div>
+                    <i class="fas fa-shopping-cart pt-1"></i>
+                    
+                    </a></div>
+                    {% endif %}
 
 			</div>
 		</div>

@@ -2,7 +2,7 @@
 {% load static from staticfiles %} 
 {% block page_title%}Quiz{% endblock %} 
 {% block content %}
-{% include 'navbar.html' %}
+{% include 'navbar.html' with active_nav='quiz_page' %}
 <div id="page-container" class="container">
 <div class="row justify-content-md-center">
 <div class="col-lg-8">
@@ -44,6 +44,7 @@
 				<ul class="pagination justify-content-center">
 					<li class="page-item">
 						{% if quizes.has_previous %}
+                        
 						<a class="page-link" href="?page={{ quizes.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
 						{% endif %}
 					</li>

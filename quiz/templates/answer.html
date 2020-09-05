@@ -53,7 +53,7 @@
 								</li>
 								{% else %}
 								<li class="page-item"><a class="page-link" onclick="sessionStorage.clear();"
-										href="{% url 'quiz' %}">Main page</a></li>
+										href="{% url 'quiz_page' %}">Main page</a></li>
 								{% endif %}
 								{% if nextquestion %}
 								<li class="page-item"><a class="page-link"
@@ -61,7 +61,7 @@
 								</li>
 								{% else %}
 								<li class="page-item"><a class="page-link" onclick="sessionStorage.clear();"
-										href="{% url 'quiz' %}">Main page</a></li>
+										href="{% url 'quiz_page' %}">Main page</a></li>
 								{% endif %}
 
 							</ul>

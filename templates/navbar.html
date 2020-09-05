@@ -14,10 +14,10 @@
 					<a id="courses" class="nav-item nav-link" href="{% url 'courses' %}">Courses</a></div>
 				<div {% if request.resolver_match.url_name == 'blogposts' %}class="active" {% endif %}>
 					<a id="blogposts" class="nav-item nav-link" href="{% url 'blogposts' %}">Blog</a></div>
-                
-				<div {% if request.resolver_match.url_name == 'quiz' %}class="active" {% endif %}>
-					<a id="quiz" class="nav-item nav-link" href="{% url 'quiz' %}">Quiz</a></div>
-
+                    <!-- With quiz_page the same method to keep it active didn't work. Solution How to keep quiz_page active found here 
+                    https://stackoverflow.com/questions/9793576/how-to-render-menu-with-one-active-item-with-dry-->
+                <div>
+					<a id="quiz_page" class="nav-item nav-link {% if active_nav == 'quiz_page' %}active{% endif %}" href="{% url 'quiz_page' %}">Quiz</a></div>
 				{% if user.is_authenticated %}
 				<div {% if request.resolver_match.url_name == 'logout' %}class="active" {% endif %}>
 					<a id="logout" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></div>
@@ -48,3 +48,4 @@
 			</div>
 		</div>
 </nav>
+

@@ -82,6 +82,13 @@ contactForm.addEventListener('submit', function (event) {
     });
 }); 
 </script>
+<script >
+    //information and code how to make group-list active found at https://stackoverflow.com/questions/18600031/changing-the-active-class-of-a-link-with-the-twitter-bootstrap-css-in-python-fla
+      $(document).ready(function () {
+        $("#{{request.endpoint}}").addClass("active");
+      });
+    </script>
+    
     
 </body>
 

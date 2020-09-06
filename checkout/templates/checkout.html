@@ -45,15 +45,15 @@
 									<th scope="row" class="border-0">
 										<div class="p-2">
 											<div class="ml-3 d-inline-block align-middle">
-												<h6 class="mb-0">
-													<div class="d-inline-block align-middle">{{ item.course.name }}
-													</div>
-												</h6>
+												<p class="mb-0">
+													<div class="d-inline-block align-middle"><strong>{{ item.course.name }}
+													</strong></div>
+												</p>
 											</div>
 										</div>
 									</th>
 									<td class="border-0 align-middle">
-										{{ item.course.price }}<i class="fas fa-euro-sign pl-1"></i>
+										{{ item.course.price }} €
 									</td>
 									<td class="border-0 align-middle ">{{item.quantity}}</td>
 								</tr>
@@ -67,15 +67,15 @@
 
 							<li class="d-flex justify-content-between py-3 border-bottom">
 								<p class="text-muted">Order summary</p>
-								<h6>{{ total }}<i class="fas fa-euro-sign pl-1"></i></h6>
+								<strong>{{ total }} €</strong>
 							</li>
 							<li class="d-flex justify-content-between py-3 border-bottom">
 								<p class="text-muted">Our online discount</p>
-								<h6>- 15 %</h6>
+								<strong>- 15 %</strong>
 							</li>
 							<li class="d-flex justify-content-between py-3 border-bottom">
 								<p class="text-muted">To pay</p>
-								<h6>{{ final_total }}<i class="fas fa-euro-sign pl-1"></i></h6>
+								<strong>{{ final_total }} €</strong>
 							</li>
 						</ul>
 						<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">

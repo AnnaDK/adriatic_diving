@@ -18,7 +18,7 @@
 					<form method="POST">
 						{% csrf_token %}
 						{{ registration_form | as_bootstrap }}
-						
+						<a href="{% url 'index' %}" aria-pressed="true" type="button" class="btn btn-secondary ">Cancel</a>
                         <button type="submit" class="btn btn-primary">Register</button>
 					</form>
 				</div>

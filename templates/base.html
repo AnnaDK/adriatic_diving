@@ -17,7 +17,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
 		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
 	</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
@@ -25,16 +26,57 @@
 	{% endblock head_js %}
 
 	<title>{% block page_title %}{% endblock %}</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.4.1/dist/email.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+ <script type="text/javascript">
+ 
+/* Code for sending an email from user to developer.
+all information found https://www.emailjs.com/
+Code written according documentation from https://www.emailjs.com/docs/rest-api/send/ 
+*/
+ const emjs = '{{emailjs_user_id}}';
+   (function() {
+    emailjs.init(emjs);
+     })();    
+    
+    $(document).ready(function () {
+        
+    const contactForm = document.querySelector('#contact-form');
 
-<script type="text/javascript">
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const data = {
+            service_id: "gmail",
+            template_id: "contact_form",
+            user_id: "user_s4RVkzg99PAXo4f1SDiFd",
+            template_params: {
+                "name": contactForm.name.value,
+                "email": contactForm.email.value,
+                "message": contactForm.message.value,
+            }
+            
+        };
 
-</script>
-  
-  
+        $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json'
+        }).done(function () {
+        $("#contact-form").empty().html("<h5 style='padding-top:1em;'>Your email has been sent !  </h5>")
+            
+        }).fail(function (error) {
+        console.log('Oops... ' + JSON.stringify(error));
+        $("#contact-form").empty().html("<h5 style='padding-top:1em;'>Oops, something went wrong...<br /> Please, try again <br /> </h5>")
+    });
+    });
+
+})
+    </script>
+
+
 </head>
 
 <body>
+
 	<div id="page-wrap">
    
 		{% block content %}{% endblock %}
@@ -42,54 +84,7 @@
 	
   {% include 'contact.html' %}
 {% include 'footer.html' %}
-<script>
-/* function reset form in modal window.  */
- const emjs = '{{EMAILJS_USER_ID}}';
-   (function(){
-      emailjs.init(emjs);
-   })();
-$("#resetBtn").click(function () {
-    $(".form-control").val("");
-});
 
-/* Code for sending an email from user to developer.
-all information found https://www.emailjs.com/
-Code written according documentation from https://www.emailjs.com/docs/rest-api/send/ 
-*/
-let contactForm = document.querySelector('#contact-form');
-contactForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const data = {
-        service_id: "gmail",
-        template_id: "contact_form",
-        user_id: emjs,
-        template_params: {
-            "name": contactForm.name.value,
-            "email": contactForm.email.value,
-            "message": contactForm.message.value
-        }
-    };
- $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
-        type: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json'
-    }).done(function () {
-        $("#contact-form").empty().html("<h5 style='padding-top:1em;'>Your email has been sent !  </h5>")
-
-    }).fail(function (error) {
-        console.log('Oops... ' + JSON.stringify(error));
-        $("#contact-form").empty().html("<h5 style='padding-top:1em;'>Oops, something went wrong...<br /> Please, try again <br /> </h5>")
-    });
-}); 
-</script>
-<script >
-    //information and code how to make group-list active found at https://stackoverflow.com/questions/18600031/changing-the-active-class-of-a-link-with-the-twitter-bootstrap-css-in-python-fla
-      $(document).ready(function () {
-        $("#{{request.endpoint}}").addClass("active");
-      });
-    </script>
-    
-    
-</body>
+	</body>
 
 </html>

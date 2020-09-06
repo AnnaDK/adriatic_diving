@@ -15,12 +15,13 @@
         <div class="card-body">
           <form method="POST">
             {% csrf_token %} {{ login_form | as_bootstrap }}
-            <button href="{% url 'index' %}" aria-pressed="true" class="btn btn-secondary btn-sm">Back</button>
+              <a href="{% url 'index' %}" aria-pressed="true" type="button" class="btn btn-secondary btn-sm">Cancel</a>
             <button type="submit" class="btn btn-primary btn-sm ml-2">Login</button>
+          <p class="mt-1"><a href="{% url 'password_reset' %}">Reset Password</a></p>
 
           </form>
          
-          <p class="mt-1"><a href="{% url 'password_reset' %}">Reset Password</a></p>
+         
         </div>
       </div>
     </div>

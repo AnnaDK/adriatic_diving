@@ -13,9 +13,12 @@
 					Profile
 				</div>
 				<div class="card-body">
+                    <p>{{ profile.username }}</p>
 					<p>{{ profile.email }}</p>
 					<p><a href="{% url 'password_reset' %}">Reset Password</a></p>
+                    <button href="{% url 'index' %}" aria-pressed="true" class="btn btn-secondary btn-sm">Back</button>
 				</div>
+                
 			</div>
 		</div>
 	</div>

@@ -6,18 +6,20 @@
 {% include 'messages.html' %}
 <div id="page-container" class="container-fluid">
 	<div class="jumbotron bg-cover mt-3 text-white" style="background-image:url(../media/images/ssi_1.jpg) ">
-		<h1 class="display-4">Let's Dive!</h1>
-
-		<h2>Explore
-			underwater world with us.</h2>
-		<p class="lead">
+		<h1 class="display-4 d-none d-lg-block">Let's Dive!</h1>
+        <p class="lead d-none d-lg-block">
         Welcome in our
-        SSI Diving Center
+        SSI Diving Center <br>
+        Explore
+			underwater world with us.
 		</p>
 		<hr class="my-4">
-		<h2>Get Certified</h2>
-		<p>We believe that safety and customer service come first. Our team of multilingual instructors, divemasters, and volunteers work hard to make sure that all of our students and divers leave our school with a passion for diving.</p>
-		<a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+		<h2 class="d-none d-lg-block">Get Certified</h2>
+        <h3 class="d-lg-none">Let's Dive!</h3>
+		<p class="lead">Buy our diving course online and get -15% off.</p>
+        <p class="lead">Login or Register to make a purchase</p>
+		<a class="btn btn-outline-light btn-sm" href="{% url 'login' %}" role="button">Login</a>
+        <a class="btn btn-outline-light btn-sm" href="{% url 'registration' %}" role="button">Register</a>
 	</div>
 
 	<div class="card-deck">

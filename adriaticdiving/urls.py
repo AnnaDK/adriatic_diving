@@ -40,4 +40,3 @@ urlpatterns = [
     url(r'^dive_blog/', include(urls_dive_blog)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]
-

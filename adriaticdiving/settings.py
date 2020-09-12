@@ -30,7 +30,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8080-ca39f714-fd9b-4d39-b394-584f289eec81.ws-eu01.gitpod.io', 'adriatic-diving.herokuapp.com']
+ALLOWED_HOSTS = ['8080-ca39f714-fd9b-4d39-b394-584f289eec81.ws-eu01.gitpod.io',
+                 'adriatic-diving.herokuapp.com']
 
 
 # Application definition
@@ -51,7 +52,7 @@ INSTALLED_APPS = [
     'checkout',
     'storages',
     'ckeditor',
-    ]
+]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -89,10 +90,6 @@ CKEDITOR_CONFIGS = {
         # 'toolbar': 'Custom',
         'width': '461px',
         'height': 'auto',
-        # 'toolbar_Custom': [
-        #     ['Bold', 'Italic', 'Underline'],
-        #     ['NumberedList', 'BulletedList'],
-        # ],
     }
 }
 
@@ -110,20 +107,16 @@ WSGI_APPLICATION = 'adriaticdiving.wsgi.application'
 }"""
 
 
-
-
-
 if "DATABASE_URL" in os.environ:
     DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 else:
     print("Database URL not found. Using SQLite instead")
     DATABASES = {
-        'default': {
+        'default':{
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
-
 
 
 # Password validation
@@ -163,7 +156,6 @@ USE_L10N = True
 USE_TZ = True
 
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
@@ -178,8 +170,6 @@ AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-
-
 
 
 STATICFILES_LOCATION = 'static'
@@ -204,9 +194,14 @@ STRIPE_SECRET = os.getenv("STRIPE_SECRET")
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
-EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
-
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'adriaticdiving@example.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
+    EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+    DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER')

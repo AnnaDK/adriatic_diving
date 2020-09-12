@@ -1,83 +1,84 @@
-{% extends "base.html" %} 
-{% load static from staticfiles %} 
-{% load bootstrap_tags %} 
-{% block title %}Blog Post{% endblock %} 
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+{% block title %}Blog Post{% endblock %}
 {% block content %}
-{% include 'navbar.html' %} 
+{% include 'navbar.html' %}
 {% include 'messages.html' %}
 <div id="page-container" class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-lg-8 col-lg-offset-2">
-	<div class="card mt-3 mb-2">
-		{% if post.image %}
-		<img src="{{ MEDIA_URL }}{{ post.image }}" class="card-img-top" style="" alt="..."/>
+	<div class="row justify-content-md-center">
+		<div class="col-lg-8 col-lg-offset-2">
+			<div class="card mt-3 mb-2">
+				{% if post.image %}
+				<img src="{{ MEDIA_URL }}{{ post.image }}" class="card-img-top" style="" alt="..."/>
 	        {% endif %}
-		<div class="card-body">
-          <h5 class="card-title">{{ post.title }}</h5>
-          <p>
-            <span class="boldtext">Author:</span> {{ post.author }}<br>
-            <span class="boldtext">Published on:</span> {{ post.created_date }}
-          </p>
-          <p class="card-text"></p>
-          <p>{{ post.post_content|safe }}</p>
-        </div>
-        <div class="card-footer">
-          <p>
-            <small class="text-muted"><span class="boldtext">Tags:</span> {{ post.tag }} <br />
+				<div class="card-body">
+					<h5 class="card-title">{{ post.title }}</h5>
+					<p>
+						<span class="boldtext">Author:</span> {{ post.author }}<br>
+						<span class="boldtext">Published on:</span> {{ post.created_date }}
+					</p>
+					<p class="card-text"></p>
+					<p>{{ post.post_content|safe }}</p>
+				</div>
+				<div class="card-footer">
+					<p>
+						<small class="text-muted"><span class="boldtext">Tags:</span> {{ post.tag }} <br />
               <span class="boldtext">Views:</span> {{post.views}}<br /> 
               {% with comments.count as commentstotal %}
               <span class="boldtext">Comments:</span> {{ commentstotal }}<br /> </small><br />
               {% endwith %}
           </p>
-            
-
           <div class="accordion" id="accordionExample">
-            <div class="card-header" id="headingTwo">
-			<h2 class="mb-0">
-				<a href="{% url 'blogposts' %}" class="btn btn-link btn-outline-dark m-2" role="button" aria-pressed="true">Back to
-					Blog</a>
-				{% if user.is_authenticated %}
-				<button class="btn btn-link collapsed btn-outline-dark m-2" type="button" data-toggle="collapse"
+							<div class="card-header" id="headingTwo">
+								<h2 class="mb-0">
+									<a href="{% url 'blogposts' %}" class="btn btn-link btn-outline-dark m-2"
+										role="button" aria-pressed="true">Back to
+										Blog</a>
+									{% if user.is_authenticated %}
+									<button class="btn btn-link collapsed btn-outline-dark m-2" type="button" data-toggle="collapse"
 			                  data-target="#collapseTwo"  aria-controls="collapseTwo" >
 			                  Comment
 			                </button>
-				{% else %}
-				<a href="{% url 'login' %}" class="btn btn-link btn-outline-dark m-2" role="button">Log in to leave a comment</a>
-			{% endif %}
-			</h2>
-            </div>
-           <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-              <div class="card-body">
-                <form method="POST">
-                  <div class="form-group">
-                    {{ form | as_bootstrap }} {% csrf_token %}
-                  </div>
-                  <button type="submit" class="btn btn-info">Submit</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row justify-content-md-center">
-    <div class="col-lg-8 col-lg-offset-2">
+									{% else %}
+									<a href="{% url 'login' %}" class="btn btn-link btn-outline-dark m-2"
+										role="button">Log in to leave a comment</a>
+									{% endif %}
+								</h2>
+							</div>
+							<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+								data-parent="#accordionExample">
+								<div class="card-body">
+									<form method="POST">
+										<div class="form-group">
+											{{ form | as_bootstrap }} {% csrf_token %}
+										</div>
+										<button type="submit" class="btn btn-info">Submit</button>
+									</form>
+								</div>
+							</div>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-md-center">
+		<div class="col-lg-8 col-lg-offset-2">
 
-      {% for comment in comments %}
-      {% if comment.approved_comment %}
-      <div class="card mb-2">
-        <div class="card-body justify-content-right">
-          <p class="card-text text-muted p-0">
-            From: {{comment.name}} &nbsp; {{comment.created_date}}
-          </p>
-          <p class="card-text">{{comment.text|linebreaks}}</p>
-          {% endif %}
-          
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
+			{% for comment in comments %}
+			{% if comment.approved_comment %}
+			<div class="card mb-2">
+				<div class="card-body justify-content-right">
+					<p class="card-text text-muted p-0">
+						From: {{comment.name}} &nbsp; {{comment.created_date}}
+					</p>
+					<p class="card-text">{{comment.text|linebreaks}}</p>
+					{% endif %}
+
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
 </div>
 {% endblock %}

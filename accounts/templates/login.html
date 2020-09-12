@@ -6,26 +6,23 @@
 {% include 'navbar.html' %} 
 {% include 'messages.html' %}
 <div id="page-container" class="container">
-  <div class="row justify-content-md-center">
-    <div class="col-lg-8 col-lg-offset-2">
-      <div class="card mt-3">
-        <div class="card-header">
-          Log in
-        </div>
-        <div class="card-body">
-          <form method="POST">
-            {% csrf_token %} {{ login_form | as_bootstrap }}
-              <a href="{% url 'index' %}" aria-pressed="true" type="button" class="btn btn-secondary btn-sm">Cancel</a>
-            <button type="submit" class="btn btn-primary btn-sm ml-2">Login</button>
-          <p class="mt-1"><a href="{% url 'password_reset' %}">Reset Password</a></p>
-
-          </form>
-         
-         
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="row justify-content-md-center">
+		<div class="col-lg-8 col-lg-offset-2">
+			<div class="card mt-3">
+				<div class="card-header">
+					Log in
+				</div>
+				<div class="card-body">
+					<form method="POST">
+						{% csrf_token %} {{ login_form | as_bootstrap }}
+						<a href="{% url 'index' %}" aria-pressed="true" role="button"
+							class="btn btn-secondary btn-sm">Cancel</a>
+						<button type="submit" class="btn btn-primary btn-sm ml-2">Login</button>
+						<p class="mt-1"><a href="{% url 'password_reset' %}">Reset Password</a></p>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-
 {% endblock %}

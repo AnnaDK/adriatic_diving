@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
-{% block page_title %}Course Page{% endblock %} 
+{% block page_title %}Course Page{% endblock %}
 {% block content %}
 {% include 'navbar.html' %}
 <div id="page-container" class="course-content container">
@@ -26,7 +26,7 @@
 							</tr>
 							<tr>
 								<th scope="row">Academic Sessions:</th>
-								<td >{{course.academic_sessions}}</td>
+								<td>{{course.academic_sessions}}</td>
 							</tr>
 							<tr>
 								<th scope="row">Pool/Confined Water Sessions:</th>
@@ -48,7 +48,7 @@
 								<th scope="row">Full Price:</th>
 								<td><strong>{{ course.price }}</strong><i class="fas fa-euro-sign pl-1"></i></td>
 							</tr>
-                            <tr>
+							<tr>
 								<th scope="row">Online discount:</th>
 								<td><strong>- 15 %</strong></td>
 							</tr>
@@ -64,13 +64,13 @@
 						</div>
 					</form>
 					<div class="py-3  border-bottom">
-						<a class="btn btn-block btn-success" href="{% url 'view_cart' %}" role="button">Schopping Cart</a>
+						<a class="btn btn-block btn-success" href="{% url 'view_cart' %}" role="button">Schopping
+							Cart</a>
 						<a class="btn btn-block btn-dark" href="{% url 'courses' %}" role="button">All Courses</a>
 					</div>
-                     
+
 				</div>
 			</div>
 		</div>
 	</div>
-
 	{% endblock %}

@@ -10,9 +10,9 @@ class Order(models.Model):
     town_or_city = models.CharField(max_length=40, blank=False)
     street_address1 = models.CharField(max_length=40, blank=False)
     street_address2 = models.CharField(max_length=40, blank=False)
-    county = models.CharField(max_length=150, blank=True, null=True)
+    county = models.CharField(max_length=150, blank=True)
     date = models.DateField()
-
+    
     def __str__(self):
         return "{0}-{1}-{2}".format(self.id, self.date, self.full_name)
 

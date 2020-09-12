@@ -1,29 +1,31 @@
-{% extends 'base.html' %} 
-{% load static from staticfiles %} 
-{% block page_title%}Quiz{% endblock %} 
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+{% block page_title%}Quiz{% endblock %}
 {% block content %}
 {% include 'navbar.html' with active_nav='quiz_page' %}
 <div id="page-container" class="container">
-<div class="row justify-content-md-center">
-<div class="col-lg-8">
-{% if quizes.has_previous %}
-<div class="card mt-3 card-quiz">
+	<div class="row justify-content-md-center">
+		<div class="col-lg-8">
+			{% if quizes.has_previous %}
+			<div class="card mt-3 card-quiz">
 				<div class="card-body">
-					<h6 class="card-title justify-content-center"></h6>
-					<p class="card-text mute text-center"><small>Quick Quiz for Open Water Divers & Scuba Divers </small> </p>
-					
+					<p class="card-text mute text-center">
+						<small>Quick Quiz for Open Water Divers & Scuba Divers </small> </p>
+
 				</div>
 			</div>
-{% else %}
- <div class="card mt-3 card-quiz">
+			{% else %}
+			<div class="card mt-3 card-quiz">
 				<div class="card-body">
-					<h6 class="card-title justify-content-center"></h6>
-					<p class="card-text mute text-center"><small>Quick Quiz for Open Water Divers & Scuba Divers <br>Choice an answer and press "Submit" to see the right one.</small> </p>
-					
+					<p class="card-text mute text-center">
+						<small>Quick Quiz for Open Water Divers & Scuba Divers <br>Choice an answer and press "Submit" to see the right one.</small>
+					</p>
+
 				</div>
 			</div>
-            {% endif %}
-</div></div>
+			{% endif %}
+		</div>
+	</div>
 	<div class="row justify-content-md-center">
 		{% for quiz in quizes %}
 		<div class="col-lg-8">
@@ -44,8 +46,9 @@
 				<ul class="pagination justify-content-center">
 					<li class="page-item">
 						{% if quizes.has_previous %}
-                        
-						<a class="page-link" href="?page={{ quizes.previous_page_number }}" tabindex="-1" aria-disabled="true">Previous</a>
+
+						<a class="page-link" href="?page={{ quizes.previous_page_number }}" tabindex="-1"
+							aria-disabled="true">Previous</a>
 						{% endif %}
 					</li>
 					<li class="page-item">

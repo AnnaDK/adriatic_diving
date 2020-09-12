@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 {% block page_title %}{{user}}'s Profile{% endblock %}
- {% block page_heading %}{{user}}'s Profile{% endblock %}
+{% block page_heading %}{{user}}'s Profile{% endblock %}
 {% block content%}
 {% include 'navbar.html' %}
 {% include 'messages.html' %}
@@ -13,12 +13,11 @@
 					Profile
 				</div>
 				<div class="card-body">
-                    <p>{{ profile.username }}</p>
+					<p>{{ profile.username }}</p>
 					<p>{{ profile.email }}</p>
 					<p><a href="{% url 'password_reset' %}">Reset Password</a></p>
-                    <button href="{% url 'index' %}" aria-pressed="true" class="btn btn-secondary btn-sm">Back</button>
+					<a href="{% url 'index' %}" class="btn btn-secondary btn-sm">Back</a>
 				</div>
-                
 			</div>
 		</div>
 	</div>

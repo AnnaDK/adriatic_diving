@@ -27,9 +27,8 @@
 
 	<title>{% block page_title %}{% endblock %}</title>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
- <script type="text/javascript">
- 
-/* Code for sending an email from user to developer.
+	<script type="text/javascript">
+		/* Code for sending an email from user to developer.
 all information found https://www.emailjs.com/
 Code written according documentation from https://www.emailjs.com/docs/rest-api/send/ 
 */
@@ -70,7 +69,7 @@ Code written according documentation from https://www.emailjs.com/docs/rest-api/
     });
 
 })
-    </script>
+	</script>
 
 
 </head>
@@ -78,13 +77,13 @@ Code written according documentation from https://www.emailjs.com/docs/rest-api/
 <body>
 
 	<div id="page-wrap">
-   
+
 		{% block content %}{% endblock %}
 	</div>
-	
-  {% include 'contact.html' %}
-{% include 'footer.html' %}
 
-	</body>
+	{% include 'contact.html' %}
+	{% include 'footer.html' %}
+
+</body>
 
 </html>

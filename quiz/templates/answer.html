@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static from staticfiles %}
-{% block page_title %}Quiz Page{% endblock %} 
+{% block page_title %}Quiz Page{% endblock %}
 {% block content %}
 {% include 'navbar.html' %}
 <div id="page-container" class="container">
@@ -70,11 +70,11 @@
 				</div>
 			</div>
 		</div>
-	
-		</div>
+
 	</div>
-    <script >
-myStorage = window.sessionStorage;
+</div>
+<script>
+	myStorage = window.sessionStorage;
 
 function myCheckbox1() {	
 	var checkbox = document.getElementById("{{quiz.option_one}}");
@@ -105,6 +105,6 @@ function myCheckbox4() {
 var checked = JSON.parse(sessionStorage.getItem("{{quiz.option_four}}"));
     document.getElementById("{{quiz.option_four}}").checked = checked;
 
-    </script>
+</script>
 
 {% endblock %}

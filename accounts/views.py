@@ -31,7 +31,8 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have been successfully logged in.")
+                messages.success(
+                    request, "You have been successfully logged in.")
                 return redirect(reverse('index'))
             else:
                 login_form.add_error(
@@ -72,5 +73,3 @@ def user_profile(request):
     """The user's profile page"""
     user = User.objects.get(email=request.user.email)
     return render(request, 'profile.html', {"profile": user})
-
-

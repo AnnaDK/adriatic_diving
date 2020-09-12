@@ -14,10 +14,11 @@
 					<a id="courses" class="nav-item nav-link" href="{% url 'courses' %}">Courses</a></div>
 				<div {% if request.resolver_match.url_name == 'blogposts' %}class="active" {% endif %}>
 					<a id="blogposts" class="nav-item nav-link" href="{% url 'blogposts' %}">Blog</a></div>
-                    <!-- With quiz_page the same method to keep it active didn't work. Solution How to keep quiz_page active found here 
+				<!-- With quiz_page the same method to keep it active didn't work. Solution How to keep quiz_page active found here 
                     https://stackoverflow.com/questions/9793576/how-to-render-menu-with-one-active-item-with-dry-->
-                <div>
-					<a id="quiz_page" class="nav-item nav-link {% if active_nav == 'quiz_page' %}active{% endif %}" href="{% url 'quiz_page' %}">Quiz</a></div>
+				<div>
+					<a id="quiz_page" class="nav-item nav-link {% if active_nav == 'quiz_page' %}active{% endif %}"
+						href="{% url 'quiz_page' %}">Quiz</a></div>
 				{% if user.is_authenticated %}
 				<div {% if request.resolver_match.url_name == 'logout' %}class="active" {% endif %}>
 					<a id="logout" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></div>
@@ -31,21 +32,21 @@
 					<a id="register" class="nav-item nav-link" href="{% url 'registration' %}">Register</a></li>
 				{% endif %}
 
-                {% if course_count > 0 %}
-                 
+				{% if course_count > 0 %}
+
 				<div {% if request.resolver_match.url_name == 'view_cart' %}class="active" {% endif %}>
 					<a id="cart" class="nav-item nav-link " href="{% url 'view_cart' %}">
-                  <i class="fas fa-shopping-cart pt-1"></i> <label class="badge badge-warning">{{ course_count }}</label>
-                    </a></div>
-                      {% else %}
-                      <div {% if request.resolver_match.url_name == 'view_cart' %}class="active" {% endif %}>
+						<i class="fas fa-shopping-cart pt-1"></i>
+						<label class="badge badge-warning">{{ course_count }}</label>
+					</a></div>
+				{% else %}
+				<div {% if request.resolver_match.url_name == 'view_cart' %}class="active" {% endif %}>
 					<a id="cart" class="nav-item nav-link" href="{% url 'view_cart' %}">
-                    <i class="fas fa-shopping-cart pt-1"></i>
-                    
-                    </a></div>
-                    {% endif %}
+						<i class="fas fa-shopping-cart pt-1"></i>
+
+					</a></div>
+				{% endif %}
 
 			</div>
 		</div>
 </nav>
-

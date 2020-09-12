@@ -8,6 +8,7 @@ from django.utils import timezone
 from courses.models import Course
 import stripe
 
+
 stripe.api_key = settings.STRIPE_SECRET
 
 

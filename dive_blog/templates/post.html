@@ -3,7 +3,7 @@
 {% load bootstrap_tags %}
 {% block title %}Blog Post{% endblock %}
 {% block content %}
-{% include 'navbar.html' %}
+{% include 'navbar.html' with active_nav='blogposts' %}
 {% include 'messages.html' %}
 <div id="page-container" class="container">
 	<div class="row justify-content-md-center">

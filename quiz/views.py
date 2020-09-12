@@ -1,8 +1,7 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render, get_object_or_404, render_to_response, redirect
+from django.shortcuts import render, get_object_or_404
 from .models import Quiz
 from django.contrib import messages
-from .forms import QuizForm
 
 
 def quiz_page(request):
@@ -19,7 +18,7 @@ def quiz_page(request):
         # If page is out of range (e.g. 9999), deliver last page of results.
         quizes = paginator.page(paginator.num_pages)
 
-    return render_to_response('quiz.html', {"quizes": quizes})
+    return render(request, 'quiz.html', {"quizes": quizes})
 
 
 def quiz_answer(request, pk):
@@ -28,11 +27,7 @@ def quiz_answer(request, pk):
     if request.method == 'POST':
 
         messages.success(request, "Answer: ")
-        form = QuizForm(request.POST,  instance=quiz)
-        if form.is_valid():
-            quiz = form.save()
-            return redirect(quiz_answer, quiz.id)
-
+    
     nextquestion = Quiz.objects.filter(id__gt=quiz.id).order_by('id').first()
     previousquestion = Quiz.objects.filter(
         id__lt=quiz.id).order_by('id').last()

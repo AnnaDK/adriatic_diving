@@ -1,52 +1,56 @@
 {% load staticfiles %}
+<!-- With quiz_page the same method to keep it active didn't work. Solution How to keep quiz_page active found here 
+                    https://stackoverflow.com/questions/9793576/how-to-render-menu-with-one-active-item-with-dry-->
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-2">
-	<a class="navbar-brand"
-		href="{% url 'index' %}"><img class="mr-2" src="{% static 'icons/wave.png' %}" width="50" height="50" alt="" loading="lazy"> Adriatic diving</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="{% url 'index' %}"><img class="mr-2" src="{% static 'icons/wave.png' %}" width="50" height="50" alt="" loading="lazy"> Adriatic diving</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-		<div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-			<div class="navbar-nav">
 
-				<div {% if request.resolver_match.url_name == 'index' %}class="active" {% endif %}>
-					<a id="home" class="nav-item nav-link" href="{% url 'index' %}">Home</a></div>
-				<div {% if request.resolver_match.url_name == 'courses' %}class="active" {% endif %}>
-					<a id="courses" class="nav-item nav-link" href="{% url 'courses' %}">Courses</a></div>
-				<div {% if request.resolver_match.url_name == 'blogposts' %}class="active" {% endif %}>
-					<a id="blogposts" class="nav-item nav-link" href="{% url 'blogposts' %}">Blog</a></div>
-				<!-- With quiz_page the same method to keep it active didn't work. Solution How to keep quiz_page active found here 
-                    https://stackoverflow.com/questions/9793576/how-to-render-menu-with-one-active-item-with-dry-->
-				<div>
-					<a id="quiz_page" class="nav-item nav-link {% if active_nav == 'quiz_page' %}active{% endif %}"
-						href="{% url 'quiz_page' %}">Quiz</a></div>
-				{% if user.is_authenticated %}
-				<div {% if request.resolver_match.url_name == 'logout' %}class="active" {% endif %}>
-					<a id="logout" class="nav-item nav-link" href="{% url 'logout' %}">Logout</a></div>
-				<div {% if request.resolver_match.url_name == 'profile' %}class="active" {% endif %}>
-					<a id="profile" class="nav-item nav-link" href="{% url 'profile' %}">Profile</a></div>
-				{% else %}
-
-				<div {% if request.resolver_match.url_name == 'login' %}class="active" {% endif %}>
-					<a id="login" class="nav-item nav-link" href="{% url 'login' %}">Login</a></div>
-				<li {% if request.resolver_match.url_name == 'registration' %}class="active" {% endif %}>
-					<a id="register" class="nav-item nav-link" href="{% url 'registration' %}">Register</a></li>
-				{% endif %}
-
-				{% if course_count > 0 %}
-
-				<div {% if request.resolver_match.url_name == 'view_cart' %}class="active" {% endif %}>
-					<a id="cart" class="nav-item nav-link " href="{% url 'view_cart' %}">
+  <div class="collapse navbar-collapse" id="navbarToggler">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0 justify-content-end">
+      <li class="nav-item">
+        <a class="nav-item nav-link  {% if active_nav == 'index' %}active{% endif %}" href="{% url 'index' %}">Home</a>
+      </li>
+      <li class="nav-item">
+        <a  class="nav-item nav-link  {% if active_nav == 'courses' %}active{% endif %}" href="{% url 'courses' %}">Courses</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link {% if active_nav == 'quiz' %}active{% endif %}" href="{% url 'quiz' %}">Quiz</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link  {% if active_nav == 'blogposts' %}active{% endif %}" href="{% url 'blogposts' %}">Blog</a>
+      </li>
+      {% if user.is_authenticated %}
+      <li class="nav-item">
+        <a class="nav-item nav-link  {% if active_nav == 'logout' %}active{% endif %}" href="{% url 'logout' %}">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link  {% if active_nav == 'profile' %}active{% endif %}" href="{% url 'profile' %}">Profile</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-item nav-link  {% if active_nav == 'login' %}active{% endif %}" href="{% url 'login' %}">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link  {% if active_nav == 'registration' %}active{% endif %}" href="{% url 'registration' %}">Register</a>
+      </li>
+      {% endif %}
+      {% if course_count > 0 %}
+      <li class="nav-item">
+        <a class="nav-item nav-link  {% if active_nav == 'view_cart' %}active{% endif %}" href="{% url 'view_cart' %}">
 						<i class="fas fa-shopping-cart pt-1"></i>
 						<label class="badge badge-warning">{{ course_count }}</label>
-					</a></div>
-				{% else %}
-				<div {% if request.resolver_match.url_name == 'view_cart' %}class="active" {% endif %}>
-					<a id="cart" class="nav-item nav-link" href="{% url 'view_cart' %}">
-						<i class="fas fa-shopping-cart pt-1"></i>
-
-					</a></div>
-				{% endif %}
-
-			</div>
-		</div>
+					</a>
+      </li>
+      {% else %}
+      <li class="nav-item">
+        <a class="nav-item nav-link  {% if active_nav == 'view_cart' %}active{% endif %}" href="{% url 'view_cart' %}">
+						<i class="fas fa-shopping-cart pt-1"></i></a>
+      </li>
+      {% endif %}
+    </ul>
+    
+  </div>
 </nav>

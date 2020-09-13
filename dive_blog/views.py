@@ -5,7 +5,9 @@ from .models import BlogPost, BlogComment, BlogAdvert
 from .forms import BlogCommentForm
 from django.contrib import messages
 
-
+# To show all blogposts from db
+# filtered by created date
+# show advert cards
 def our_blog(request):
     posts = BlogPost.objects.filter(created_date__lte=timezone.now()
                                     ).order_by('-created_date')
@@ -24,7 +26,8 @@ def our_blog(request):
     return render(request, "blogposts.html", {'posts': posts,
                                               'adverts': adverts})
 
-
+# to show a single post
+# comments will be showing only under related post
 def single_post(request, pk):
 
     post = get_object_or_404(BlogPost, pk=pk)

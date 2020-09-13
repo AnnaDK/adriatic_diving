@@ -3,7 +3,8 @@ from django.shortcuts import render, get_object_or_404
 from .models import Quiz
 from django.contrib import messages
 
-
+# to show all quiz questions from db
+# split betwee pages 5 p.p
 def quiz_page(request):
     quizes = Quiz.objects.all()
     paginator = Paginator(quizes, 5)  # Show 5 contacts per page
@@ -21,6 +22,8 @@ def quiz_page(request):
     return render(request, 'quiz.html', {"quizes": quizes})
 
 
+# Quiz question with answers
+# previous next allows to move from one question to another
 def quiz_answer(request, pk):
     quiz = get_object_or_404(Quiz, pk=pk)
     form = None

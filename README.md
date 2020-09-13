@@ -21,10 +21,9 @@
  ## 1. [UX](#ux) 
 
    - **[Project Goals](#project-goals)**
-   - **[Player Goals](#player-goals)**
+   - **[User Goals](#user-goals)**
    - **[Developer Goals](#developer-goals)**
    - **[User Stories](#user-stories)**
-   - **[Game Design](#game-design)**
    - **[Wireframes](#wireframes)**
 
  ## 2. [Features](#features)
@@ -47,7 +46,7 @@
 
   To create a full-stack site with an authentication mechanism, business logic, and the possibility for clients the purchase of a product/service.
 
- ### [Player goals](#player-goals)
+ ### [User goals](#user-goals)
 
  Clients goals:
 
@@ -115,100 +114,142 @@
  #### All Pages
 
  1. **Navigation bar**.
- *  Logo: "Adriatic Diving". Working as a link to Home Page.<br>
-    Navigation menu: 
-     list of existing pages.
+ *  Logo: "Adriatic Diving". Allows users to come back to Home Page.<br>
+    Navigation menu allows users to navigate throug web site:<br>
+    Home<br>
+    Courses<br>
+    Quiz<br>
+    Blog<br>
+    Cart<br>
+    If user is not logged in :<br>
+    Log in<br>
+    Registration<br>
+    If user is logged in :<br>
+    Log out<br>
+    Profile<br>
 
  2. **Footer**.
+ Allows users to see post address of the school and contact the school via email <br>
+ by pressing the "Contact" button and filling a contact email form.
+
  *  Post Address of the diving school with phone number.<br>
     Button "Contact" opening a modal window with contact form<br>
     Copyright sign
 
  #### Home Page
 
- 1. **** :
+ 
+ 1. **Jumbotron**
+    Main home page image.<br>
+     Buttons links to Log In or Register.<br>
+     Allows users to go to the registration form or login form<br>
+     
 
- * 
- #### Courses Page
+ 2. **Cards**<br>
+ Allows users to see a short description about web site pages such as Courses, Blog, Quiz and go there by following arrows links.
+ ##### Do you want to get certified?
+ text + link to courses page
+ ##### Welcome in our Blog
+ text + link to blog page
+ ##### Check yourself
+ text + link to quiz page
 
- 1. **** :
+
+ #### Courses Page <br>
+
+ Allows users to see all diving courses and by clicking on the course image move to the separate page with a full explanation
+
+ 1. Image cards.
+ * Each working as a link to the diving course page<br>
+ 2. Text card.
+ * Explanation about courses and discount.
+
+ #### Course Page <br>
+
+ Allows users to see parameters for each course.<br>
+ Details represented as a table with the course price below. <br>
+ By choosing a quantity and clicking the "Buy" button the user will add a course to the shopping cart
 
  #### Blog Page
+ Allows users to see all blog posts. <br>
+ Pagination at the button of the page allows the switch between pages.<br>
+ Each blog card has a button. By clicking on it the user will open the blog post as a separate page<br>
 
- 1. **** :
+ 1. List of cards with blog posts.<br>
+ * Image
+ * Short description
+ * Button 'read more'
+
+ #### Blog Post
+ Allows users to see chosen blog post on the separate page
+ Users can live comments by clicking on the ''Comment" button if he is logged in. Or log in button and fill an authorization form before leaving a comment. 
+ Comments will appear after approval from the admin
 
  #### Quiz Page
+  Allows users to see all quiz questions. <br>
+  Pagination at the bottom of the page allows users to switch between pages.<br>
+  Each question working as a link and by clicking on it user will open a separate page with a question
 
- 1. **** :
+ 1. Cards :<br>
+ * Quiz number
+ * Question
 
  #### Log in Page
-
- 1. **** :
+ Allows users to log in by filling a simple form with 'username' and a 'password'.<br>
+ If user forgot the password he clicks the link below 'Reset Password' and will redirect to the reset password page
+ 
 
  #### Register Page
-
- 1. **** :
-
+ Allows users to make a registration on the web site by filling a form:<br>
+ "Email"<br>
+ "Username"<br>
+ "Password"<br>
+ "Password confirmation"<br>
  #### Log out Page
-
- 1. **** :
+ Allows users to ''Log out" by clicking Log out button in the navigation menu bar
 
  #### Profile Page
-
- 1. **** :
+ Allows users to see their profile page with information :<br>
+ "Username"<br>
+ "email"<br>
+ and "Reset Password" link
 
  #### Shopping Cart Page
+ Allows users to see which products they choose to buy. <br>
+ Change a quantity or go back to the product page by clicking on the product name.<br>
+ If the user is satisfied by his choose he can check the total amount below including discount and proceed father by clicking on the "Checkout " button
+ 
+ #### Checkout Page
+ Allows users to complete their purchase by filling a checkout form. <br>
+ If all fields filled correct and the form submitted user will see a verifying message 
 
- 1. **** :
- <p align="center">
-   <img width="500" height="" src="assets/images/images_for_readme/ms2_main_screen.png">
- </p>
-  
-  #### Mobile devices display
-
-  
-  <p align="center">
-  <img width="150"  m-5 height="" src="assets/images/images_for_readme/ms2_puzzle_mobile.png">
-   <img width="150" pl-2 height="" src="assets/images/images_for_readme/ms2_control_mobile.png">
-   <img width="150" p-2 height="" src="assets/images/images_for_readme/ms2_rules_mobile.png">
-   <img width="150" p-2 height="" src="assets/images/images_for_readme/ms2_form_mobile.png">
- </p>
-   
- <p align="center">
-  <img width="500" height="" src="assets/images/images_for_readme/ms2_hooray.png">
- </p>
-
-
- #### Tablet display 
-
-  <p align="center">
-  <img width="200" height="" src="assets/images/images_for_readme/ms2_tablet.png">
-  </p>
-  
-
-
-  
-
+ #### Contact Page
+ Allows users to send an email to diving school by filling a contact form. <br>
+ Link to the modal window with a contact form at the bottom of the page. Button "Contact us"
+ 
  ### [Features Left to Implement](#features-left-to-implement)
 
- 1.    
+ 1. In the Blog create functionality which allows users to remove or edit their own comment. 
 
- 2. ****.
+ 2. Create a search in the Blog app. Which will allow users to find a blog post by tags or subjects.
      
-
- 3. ****. 
+ 3. Create a control functionality in the Quiz. Will show different reactions depending on the user answers <br>
+   If it is wrong or right.<br>
+   For example different colors of answer messages. Red or Green. With "You are wrong" or "You are right" on top. 
      
+ 4. In the Quiz app create functionality which will count how many right answers gave the user and show a result at the end.
 
- 4. ****.
-     
+ 5. Add more quizzes with different levels of difficulty.
+
+ 6. Create a functionality which will save order details in the user profile and send a confirmation letter after checkout.
 
 
-
-------------------------------------------------------------------------
+ ------------------------------------------------------------------------
 
   ## [Technologies Used](#technologies-used)
 
-  This project uses HTML, CSS and JavaScript programming languages.
+ ### Languages
+  This project uses HTML, CSS, JavaScript and Python programming languages.
 
   * **[Balsamiq](https://balsamiq.com/)** <br/>
    The project uses Balsamiqo to build wireframes in the planning stage of development.
@@ -224,22 +265,16 @@
    The project uses Google fonts to style the website fonts.
   * **[GitHub](https://github.com/)**<br/>
    To store and share all project code remotely.
-  * **[Browserstack](https://www.browserstack.com/)**<br/>
-   The project used Browserstack to test functionality on all browsers and devices.
   * **[AutoPrefixer](https://autoprefixer.github.io/)**<br/>
    The project used AutoPrefixer to add prefixes in the CSS for cross-browser support.
   * **[Google Chrome - Dev Tools]()**<br/>
    The project used Google Chrome Dev Tools to debug code. Check responsiveness.
-  * **[Favicon generator](https://favicon.io/)**<br/>
-   The project uses Favicon generator to create a puzzle favicon
   * **[EmailJS](https://www.emailjs.com/)**<br/>
    To connect mail service to the web site and be able to receive feedback and messages from users.
   * **[Stripe](https://stripe.com/ie)**<br/>
    To receive payments.
   * **[Google](https://www.google.com)**<br/>
     Images for the project were found by using Google image search.
-  * **[Color Hex Color Codes](https://www.color-hex.com/)**<br/>
-   To chooise colors and take a code for the project
   * **[Stackoverflow](https://stackoverflow.com/)** <br/>
    To find a thousand answers for a thousand questions.
   * **[Heroku](https://heroku.com/)** <br/>
@@ -259,23 +294,162 @@
  --------------------------------------------------------------------------
  ## [Testing](#testing)
 
-   All information can be found in [testing.md](assets/references/testing.md)
+   All information can be found in [testing.md](./TESTING.md)
 
  ------------------------------------------------------------------------------
  ## [Deployment](#deployment)
   
+  --------------------------------------------------------------------
+  website was codded on GitPod.
 
-  
- **To deploy the project, the following method was used.**
+ - Open account on GitHub.
+ - Create a project repository using the CI full template.
+ - Use the Gitpod extension to open a working-space.
+ - Commits were done through Gitpod.
 
+ ### How to run this project locally: 
+  To run this project on your own IDE :<br>
+  Install on your machine: - PIP - Python 3 - Git<br>
+  You must to have accounts with the following services: <br>
+
+     - Stripe - AWS and set up an S3 bucket - emailjs
+
+  Save a copy of the github repository located at <br>
+
+     https://github.com/AnnaDK/adriatic_diving.git 
+
+ clicking the "download zip" button at the top of the page.<br>
+ Extract the zip file to your chosen folder. <br>
+ Or clone the repository <br>
+ If necessary  Upgrade pip with:<br>
+      pip install --upgrade pip.<br>
+ Install all required modules :<br>
+
+     pip -r requirements.txt.
+
+ Set up the following environment variables in env.py file <br>
+
+     $ touch .gitignore
+
+ Add the env.py to the .gitignore file.<br>
+     
+     import os 
+
+     os.environ.setdefault('SECRET_KEY', '<secrete key>')
+     os.environ.setdefault('DATABASE_URL', '<postgres key>')
+
+ ### STRIPE API Keys 
+     os.environ.setdefault('STRIPE_PUBLISHABLE', '<stripe publishable key>')
+     os.environ.setdefault('STRIPE_SECRET', '<stripe secret key>')
  
-  **How to run this project locally**
-  
+ ### Email Keys 
+     os.environ.setdefault('EMAIL_ADDRESS', '<your email here>')
+     os.environ.setdefault('EMAIL_PASSWORD', '<your email password here>')
+
+ ### AWS API Keys 
+     os.environ.setdefault('AWS_ACCESS_KEY_ID', '<aws access key id>')
+     os.environ.setdefault('AWS_SECRET_ACCESS_KEY', '<aws secret access key>')
+
+ ### Email Keys 
+     os.environ.setdefault('EMAIL_ADDRESS', '<your email here>')
+     os.environ.setdefault('EMAIL_PASSWORD', '<your email password here>')
+
+ Migrate the models to crete a database template.
+
+      $ python manage.py migrate
+
+ Create superuser
+
+ python manage.py createsuperuser
+ Run the program locally :
+
+     python manage.py runserver
+
+ ### Deployment to Heroku
+  Log in to Heroku <br>
+  Install Heroku-CLI <br>
+  Type in the terminal: <br>
+
+     $ heroku login
+
+ Enter  Heroku credentials.<br>
+
+     Email: your@email.com
+     Password :
+
+ Save all the requirements into the requirements.txt :<br>
+
+     $ pip freeze > requirements.txt
+
+  Create a Procfile and add there:<br>
+
+     web: gunicorn adriaticdiving.wsgi:application
+
+  Now can do <br>
+
+     add ., git commit and git push 
+
+  your application to a GitHub repository <br>
+ In the Heroku account create new app.<br>
+ Select  region and name for the project.<br>
+ From the heroku dashboard  click on "Deploy" click "Deployment method" and select GitHub.<br>
+ Link heroku app to the correct GitHub repository.<br>
+ In the Heroku settings - reveal config vars.<br>
+ Config variables must be set:<br>
+
+     KEY	VALUE
+     AWS_ACCESS_KEY_ID	<your aws access key>
+     AWS_SECRET_ACCESS_KEY	<your aws secret access key>
+     DATABASE_URL	<your postgres database url>
+     EMAIL_ADDRESS	<your email address>
+     EMAIL_PASSWORD	<your email password>
+     SECRET_KEY	<your secret key>
+     STRIPE_PUBLISHABLE	<your stripe publishable key>
+     STRIPE_SECRET	<your stripe secret key>
+     AWS_ACCESS_KEY_ID	<your aws access key>
+ 
+ From the command line :<br>
+
+ Enter the heroku postres shell
+ Migrate the database models
+ Create your superuser account 
+ Information at [ heroku devcenter documentation](https://devcenter.heroku.com/articles/heroku-postgresql)
+
+ Heroku dashboard:<br>
+ click "Deploy"<br>
+ At  "Manual Deploy" select the master branch and click "Deploy Branch".<br>
+ After the build is complete, click the "View app" .<br>
+ At the link provided add   /admin .<br>
+ Can log in with your superuser account<br>
+ Once instances of these items exist in your database your heroku site will run as expected.<br>
+
+ To add Add static files to AWS s3<br>
+ can follow this [tutorial](https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html).
+
  ------------------------------------------------------------------------------
  ## [Acknowledgments](#acknowledgments)
 
+ - Text within this project was written by the developer.
+ - Text for a description of courses and different information about diving taken from the [SSI web site.](https://www.divessi.com/en-IC/home/)
+ - Images for courses and home page taken from the [SSI web site.](https://www.divessi.com/en-IC/home/)
+ 
+ - Project idea and design were created by the developer
 
-  **Special thanks to:**
+
+ - Code Institute lessons from "Full Stack Frameworks with Django " modules were used as the main reference in the process of creating this project.
+ - Apps: Accounts, Cart, Checkout were coded by following Code Institute lessons from "Full Stack Frameworks with Django " modules 
+ - Blog App created with help of CI lessons and tutorial from [Django girls.org](https://tutorial-extensions.djangogirls.org/en/homework_create_more_models/)
+ - Quiz App created with help of tutorial from [prettyprinted](https://prettyprinted.com/tutorials/creating-a-poll-app-in-django)
+ - Quiz questions from [dive-college](http://www.dive-college.com.cy/test-your-knowledge.html)
+ - Shopping cart snippep from bootstrapious.com. Changed and adjusted for the project [bootstrapious](https://bootstrapious.com/p/bootstrap-shopping-cart)
+ - Nav-bar brand icon from [here](https://www.flaticon.com/free-icon/diving_3145026?term=diving&page=1&position=84)
+ - Docs.djangoproject used as helpfull sourse in creating this project [docs.djangoproject](https://docs.djangoproject.com/)
+  
+### Special thanks to:
+
+  Code Institute Mentor Spencer Barriball for his help in this project and support.<br>
+  Code Institute Tutor support. Special thanks to CI tutors Xavier and Tim<br>
+  Code Institute Slack Community for the shared experience.
 
  ## [Disclaimer](#disclamer)
 

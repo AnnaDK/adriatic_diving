@@ -13,8 +13,10 @@ stripe.api_key = settings.STRIPE_SECRET
 
 
 @login_required()
+ # Handle the Stripe api checkout the card and payment
 def checkout(request):
     if request.method == "POST":
+        # two forms that will be used
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
 

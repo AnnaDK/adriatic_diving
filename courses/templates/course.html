@@ -3,13 +3,14 @@
 {% block page_title %}Course Page{% endblock %}
 {% block content %}
 {% include 'navbar.html' with active_nav='courses' %}
+<!--information about course from db-->
 <div id="page-container" class="course-content container">
 	<div class="row ">
 		<div class="col-sm-12 col-md-12 col-lg-6 mt-3">
-			<img src="{{ MEDIA_URL }}{{ course.image }}"  class="img-fluid rounded mx-auto d-block float-left"  alt="...">
+			<img src="{{ MEDIA_URL }}{{ course.image }}"  class="img-fluid rounded mx-auto d-block float-left"  alt="course img">
 </div>
 			<div class="col-sm-12 col-md-12 col-lg-6 mt-3">
-				<div class="media-body">
+				<div class="media-body"><!--from Bootstrap-->
 					<h5 class="mt-0">{{ course.name }}</h5>
 					<p>{{course.description}}</p>
 					<h3>Facts</h3>

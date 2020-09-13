@@ -1,8 +1,8 @@
 from django.db import models
+# course model add information about each course in the db 
 
 
 class Course(models.Model):
-
     name = models.CharField(max_length=260, default='')
     description = models.TextField()
     minimum_age = models.CharField(max_length=100, default='')

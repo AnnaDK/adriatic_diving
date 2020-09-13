@@ -103,8 +103,8 @@
 
  The wireframes were created using  [Balsamiq Wireframes](https://balsamiq.com/).
 
- Web site design and mobile display [here](assets/references/wireframes_images/wireframes_puzzle.pdf)
-
+ Web site design  [here](static/images/readme.img/wireframes_descktop_ms4.pdf)
+ Mobile version [here](static/images/readme.img/wireframes_mobile_ms4.pdf)
  ----------------------------------------------------------------------
 
 

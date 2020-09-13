@@ -103,10 +103,8 @@
 
  The wireframes were created using  [Balsamiq Wireframes](https://balsamiq.com/).
 
- Web site design  [here]( Web site design  [here](static/images/readme_img/wireframes_descktop_ms4.pdf)
+ All information can be found in [wireframes.md](./WIREFRAMES.md)
 
-
- Mobile version [here](https://github.com/AnnaDK/adriatic_diving/blob/2f602573d7e81b78a56ef6d3403fbab8e20ecedf/static/images/readme_img/wireframes_mobile_ms4.pdf)
  ----------------------------------------------------------------------
 
 

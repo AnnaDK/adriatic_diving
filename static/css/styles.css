@@ -9,15 +9,13 @@ html {
   margin: 0;
   padding: 0;
 }
+
 body {
   height: 100%;
   position: relative;
   background: rgb(195, 235, 255);
-  background: -webkit-linear-gradient(
-    to right,
-    rgb(195, 235, 255),
-    rgb(91, 150, 180)
-  );
+  background: -webkit-gradient(linear, left top, right top, from(rgb(195, 235, 255)), to(rgb(91, 150, 180)));
+  background: -o-linear-gradient(left, rgb(195, 235, 255), rgb(91, 150, 180));
   background: linear-gradient(to right, rgb(195, 235, 255), rgb(91, 150, 180));
 }
 
@@ -29,52 +27,47 @@ body {
   padding-bottom: 50px;
 }
 
-#footer {
-  margin-top: 40px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
-
 .navbar {
   font-family: "MuseoModerno", cursive;
   font-weight: 500;
-  box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
+  -webkit-box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
+          box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
 }
-
-.page-footer {
-  font-family: "MuseoModerno", cursive;
-  font-size: 15px;
-  box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
-  background-color: white;
-}
-.card {
-  font-family: "Roboto", sans-serif;
-  font-size: 17px;
-  box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
-}
-
 .navbar-brand {
   font-size: 22px;
   font-weight: 500;
 }
 
-.course-content {
-  font-family: "Roboto", sans-serif;
+.page-footer {
+  font-family: "MuseoModerno", cursive;
+  font-size: 15px;
+  -webkit-box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
+          box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
+  background-color: white;
 }
 
 .jumbotron {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 50%;
+} 
+.card {
+  font-family: "Roboto", sans-serif;
+  font-size: 17px;
+  -webkit-box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
+          box-shadow: -2px 6px 9px 4px rgba(71, 71, 70, 0.59);
+}
+
+.course-content {
+  font-family: "Roboto", sans-serif;
 }
 
 .card_course:active {
-  transform: translateY(2px);
-  box-shadow: 0 1px 0 0 #ccc;
+  -webkit-transform: translateY(2px);
+      -ms-transform: translateY(2px);
+          transform: translateY(2px);
+  -webkit-box-shadow: 0 1px 0 0 #ccc;
+          box-shadow: 0 1px 0 0 #ccc;
 }
 .stretched-link {
   text-decoration: none !important;

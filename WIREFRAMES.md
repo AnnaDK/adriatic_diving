@@ -6,17 +6,17 @@
  
  #### Home
  <p align="center">
-   <img  src="wireframes/images_readme/wireframes/01_home.png">
+   <img  src="static/wireframes/images_readme/wireframes/01_home.png">
  </p>
 
  #### Courses
 <p align="center">
-   <img  src="wireframes/images_readme/wireframes/02_courses.png">
+   <img  src="static/wireframes/images_readme/wireframes/02_courses.png">
  </p>
 
  #### Course Page
  <p align="center">
-   <img  src="wireframes/images_readme/wireframes/03_course_page.png">
+   <img  src="static/wireframes/images_readme/wireframes/03_course_page.png">
  </p>
 
  #### Blog

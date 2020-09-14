@@ -4,9 +4,6 @@
 
 [![Build Status](https://travis-ci.org/AnnaDK/adriatic_diving.svg?branch=master)](https://travis-ci.org/AnnaDK/adriatic_diving)
 
- <p align="center">
-   <img  src="https://github.com/AnnaDK/adriatic_diving/blob/master/wireframes/img_for_readme/for_readme.png">
- </p>
 
 
  # **Adriatic Diving** 
@@ -103,7 +100,7 @@
 
  The wireframes were created using  [Balsamiq Wireframes](https://balsamiq.com/).
 
- Desktop version [wireframes](https://github.com/AnnaDK/adriatic_diving/blob/master/wireframes/wireframes.pdf)
+ Desktop version [wireframes](https://github.com/AnnaDK/adriatic_diving/blob/master/wireframes/wireframes.pdf)<br>
  Mobile version [wireframes](https://github.com/AnnaDK/adriatic_diving/blob/master/wireframes/wireframes_mobile.pdf)
 
  ----------------------------------------------------------------------

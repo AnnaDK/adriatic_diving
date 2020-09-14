@@ -103,7 +103,7 @@
 
  The wireframes were created using  [Balsamiq Wireframes](https://balsamiq.com/).
 
- All information can be found in [wireframes.md](./WIREFRAMES.md)
+ All information can be found in [wireframes](../media/wireframes.pdf)
 
  ----------------------------------------------------------------------
 

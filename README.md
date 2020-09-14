@@ -103,7 +103,7 @@
 
  The wireframes were created using  [Balsamiq Wireframes](https://balsamiq.com/).
 
- All information can be found in [wireframes](../media/wireframes.pdf)
+ All information can be found in [wireframes](https://github.com/AnnaDK/adriatic_diving/blob/master/wireframes/wireframes.pdf)
 
  ----------------------------------------------------------------------
 

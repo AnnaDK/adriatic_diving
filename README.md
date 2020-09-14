@@ -5,8 +5,9 @@
 [![Build Status](https://travis-ci.org/AnnaDK/adriatic_diving.svg?branch=master)](https://travis-ci.org/AnnaDK/adriatic_diving)
 
  <p align="center">
-   <img  src="assets/images/images_for_readme/ms2_responsive.png">
+   <img  src="static/images_readme/for_readme.png">
  </p>
+
 
  # **Adriatic Diving** 
 

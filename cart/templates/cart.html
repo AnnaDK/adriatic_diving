@@ -16,32 +16,32 @@
 						<table class="table">
 							<thead>
 								<tr>
+
 									<th scope="col" class="border-0 bg-light">
-										<div class="p-2 px-3 ">Product</div>
+										<div class=" px-3 ">Product</div>
 									</th>
 									<th scope="col" class="border-0 bg-light">
-										<div class="p-2 px-3 ">Price</div>
+										<div class=" px-3 ">Price</div>
 									</th>
 									<th scope="col" class="border-0 bg-light">
-										<div class="p-2 px-3 ">Quantity</div>
+										<div class=" px-3 ">Qty</div>
 									</th>
 									<th scope="col" class="border-0 bg-light">
-										<div class="p-2 px-3">Add</div>
+										<div class=" px-3">Add</div>
 									</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									{% for item in cart_items %}
-									<form class="form" method="post" action="{% url 'adjust_cart' item.id %}">
-										{% csrf_token %}
+								{% for item in cart_items %}
+								<form class="form" method="post" action="{% url 'adjust_cart' item.id %}">
+									{% csrf_token %}
+									<tr>
 										<th scope="row" class="border-0">
 											<div class="p-2">
 												<div class="ml-3 d-inline-block align-middle">
-													<h5 class="mb-0">
-														<a href="{% url 'course' item.id %}"
+													<p class="mb-0"> <a href="{% url 'course' item.id %}"
 															class="text-dark d-inline-block align-middle">{{ item.course.name }}</a>
-													</h5>
+													</p>
 												</div>
 											</div>
 										</th>
@@ -56,10 +56,12 @@
 													<button class="btn btn-outline-secondary" type="submit">Add</button>
 												</div>
 											</div>
+
+
 										</td>
-									</form>
-									{% endfor %}
-								</tr>
+									</tr>
+								</form>
+								{% endfor %}
 							</tbody>
 						</table>
 					</div>
@@ -74,14 +76,17 @@
 
 						<li class="d-flex justify-content-between py-3 border-bottom">
 							<strong class="text-muted">Order summary</strong>
+							<p>{{ total }} €</p>
 							<strong>{{ total }} €</strong>
 						</li>
 						<li class="d-flex justify-content-between py-3 border-bottom">
 							<strong class="text-muted">Our online discount</strong>
+							<p>- 15 %</p>
 							<strong>- 15 %</strong>
 						</li>
 						<li class="d-flex justify-content-between py-3 border-bottom">
 							<strong class="text-muted">To pay</strong>
+							<p>{{ final_total }} €</p>
 							<strong >{{ final_total }} €</strong>
 						</li>
 					</ul><a href="{% url 'checkout' %}" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to
